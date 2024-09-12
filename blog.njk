@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+section: blog
+pagination:
+    data: collections.post
+    size: 10
+    alias: posts
+    reverse: true
+permalink: "/blog/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber }}/{% endif %}index.html"
+---
+
+{{ layoutContent | safe }}
+{% set postslist = posts %}
+{% include "components/postslist.njk" %}
+<nav aria-labelledby="my-pagination-links">
+    {% if page.url != pagination.href.first %}
+        <a href="{{ pagination.href.first }}" {% if page.url == pagination.href.first %} aria-current="page" {% endif %}>&lt&lt</a>
+    {% endif %}
+    {%- for pageEntry in pagination.pages %}
+        <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page" {% endif %}>{{ loop.index }}</a>
+    {%- endfor %}
+    {% if page.url != pagination.href.last %}
+        <a href="{{ pagination.href.last }}" {% if page.url == pagination.href.last %} aria-current="page" {% endif %}>
+            &gt&gt
+        </a>
+    {% endif %}
+</nav>
