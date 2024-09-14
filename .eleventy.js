@@ -3,6 +3,7 @@ const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-js");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
@@ -54,6 +55,52 @@ module.exports = function (eleventyConfig) {
     return seriesColl;
   });
 
+  // Tag list and count of posts
+  eleventyConfig.addCollection("tagList", (collection) => {
+    const tagsObject = {};
+    collection.getFilteredByTags("post").forEach((item) => {
+      if (!item.data.tags) return;
+      item.data.tags
+        .filter((tag) => !["post", "all"].includes(tag))
+        .forEach((tag) => {
+          if (typeof tagsObject[tag] === "undefined") {
+            tagsObject[tag] = 1;
+          } else {
+            tagsObject[tag] += 1;
+          }
+        });
+    });
+
+    const tagList = [];
+    Object.keys(tagsObject).forEach((tag) => {
+      tagList.push({ tagName: tag, tagCount: tagsObject[tag] });
+    });
+
+    return tagList.sort((a, b) => b.tagCount - a.tagCount);
+  });
+
+  // Category list and count of posts
+  eleventyConfig.addCollection("categoryList", (collection) => {
+    const tagsObject = {};
+    collection.getFilteredByTags("post").forEach((item) => {
+      if (!item.data.categories) return;
+      item.data.categories.forEach((tag) => {
+        if (typeof tagsObject[tag] === "undefined") {
+          tagsObject[tag] = 1;
+        } else {
+          tagsObject[tag] += 1;
+        }
+      });
+    });
+
+    const tagList = [];
+    Object.keys(tagsObject).forEach((tag) => {
+      tagList.push({ name: tag, postCount: tagsObject[tag] });
+    });
+
+    return tagList.sort((a, b) => b.postCount - a.postCount);
+  });
+
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy");
@@ -91,6 +138,8 @@ module.exports = function (eleventyConfig) {
     }
     return content;
   });
+
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addPassthroughCopy("./images/*.jpg");
   eleventyConfig.addPassthroughCopy("./images/*.png");

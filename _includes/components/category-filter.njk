@@ -1,0 +1,8 @@
+<ul class="category-filter">
+    {% for cat in collections.categoryList %}
+        <li>
+            <a href="/tags/{{ cat.name }}">{{ cat.name }}</a>
+            <span class="post-count">({{ cat.postCount }})</span>
+        </li>
+    {% endfor %}
+</ul>

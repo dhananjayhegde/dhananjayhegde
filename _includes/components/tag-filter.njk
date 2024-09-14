@@ -1,0 +1,7 @@
+<ul class="tag-filter">
+    {% for tag in collections.tagList %}
+        <li>
+            <a href="/tags/{{ tag.tagName }}">{{ tag.tagName }} .......... ({{ tag.tagCount }})</a>
+        </li>
+    {% endfor %}
+</ul>

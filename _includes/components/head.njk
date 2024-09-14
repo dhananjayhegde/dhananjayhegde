@@ -1,16 +1,24 @@
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="{{ eleventy.generator }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8"/>
+  <meta name="generator" content="{{ eleventy.generator }}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>{{ title or metadata.title }}</title>
-  <meta name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}">
-  {% set css %}
-    {% include "assets/css/inline.css" %}
+  <meta name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}"/> {% set css %}
+  {% include "assets/css/inline.css" %}
   {% endset %}
-  <style>{{ css | cssmin | safe }}</style>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Reddit+Mono:wght@200..900&display=swap"
+    rel="stylesheet"/> <!-- End Fonts -->
+  <!-- Prism Syntax Highlighter -->
+  <link
+  href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet"/> <!-- End Prism Syntax Highlighter -->
+  <style>{{css | cssmin | safe}}</style>
   {# Uncomment below if you want to include minified inline JavaScript #}
   {# {% set js %}
-    {% include "assets/js/inline.js" %}
-  {% endset %}
-  <script>{{ js | jsmin | safe }}</script> #}
+                                                                                      {% include "assets/js/inline.js" %}
+                                                                                    {% endset %}
+                                                                                    <script>{{ js | jsmin | safe }}</script> #}
 </head>

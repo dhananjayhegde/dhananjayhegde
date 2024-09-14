@@ -1,10 +1,11 @@
 ---
-title: "Hey there!"
-date: "2021-10-12"
+layout: layouts/base.njk
+title: Hey there!
+date: 2021-10-12
 permalink: /about/index.html
 eleventyNavigation:
-  key: About Me
-  order: 4
+  key: About
+  order: 5
 ---
 
 ## I am Dhananjay Hegde, an SAP ABAP Fullstack developer.
