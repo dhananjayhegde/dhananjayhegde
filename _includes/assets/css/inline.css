@@ -183,8 +183,13 @@ h5 a {
 	font-style: italic;
 }
 
-.main-content *+* {
-	margin-block-start: var(--space-2);
+.main-content *+*,
+.main-sidebar *+ul,
+.main-sidebar *+h2,
+.main-sidebar *+p,
+.main-sidebar *+div
+{
+	margin-block-start: var(--space-3);
 }
 
 .main-content ul li {
@@ -366,6 +371,17 @@ body {
 .main-sidebar ul.category-filter li span {
 	float: right;
 	background-color: var(--base-3);
+}
+
+.main-sidebar ul.year-filter {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: var(--space-1);
+}
+
+.main-sidebar ul.year-filter li a {
+	font-size: var(--text-lg);
+	font-weight: var(--font-weight__bold);
 }
 
 .main-content .content-footer {

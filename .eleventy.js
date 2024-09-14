@@ -101,6 +101,28 @@ module.exports = function (eleventyConfig) {
     return tagList.sort((a, b) => b.postCount - a.postCount);
   });
 
+  // Category list and count of posts
+  eleventyConfig.addCollection("postYearList", (collection) => {
+    const tagsObject = {};
+    collection.getFilteredByTags("post").forEach((item) => {
+      if (!item.data.date) return;
+      const year = new Date(item.data.date).getFullYear();
+
+      if (typeof tagsObject[year] === "undefined") {
+        tagsObject[year] = 1;
+      } else {
+        tagsObject[year] += 1;
+      }
+    });
+
+    const tagList = [];
+    Object.keys(tagsObject).forEach((year) => {
+      tagList.push({ year: year, postCount: tagsObject[year] });
+    });
+
+    return tagList.sort((a, b) => b.postCount - a.postCount);
+  });
+
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy");

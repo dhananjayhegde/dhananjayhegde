@@ -1,0 +1,8 @@
+<ul class="year-filter">
+    {% for year in collections.postYearList %}
+        <li>
+            <a href="/tags/{{ year.year }}">{{ year.year }}</a>
+            <span>({{ year.postCount }})</span>
+        </li>
+    {% endfor %}
+</ul>
