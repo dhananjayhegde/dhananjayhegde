@@ -18,6 +18,10 @@ module.exports = function (eleventyConfig) {
   // Merge data instead of overriding
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_alias: "excerpt",
+  });
 
   // Add support for maintenance-free post authors
   // Adds an authors collection using the author key in our post frontmatter

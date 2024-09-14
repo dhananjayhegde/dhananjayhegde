@@ -1,6 +1,6 @@
-<section>
+<section class="layout__compact">
     {% for post in postslist %}
-        <article {% if post.url == url %} data-current="current item" {% endif %}>
+        <article class="post-list" {% if post.url == url %} data-current="current item" {% endif %}>
             <h3>
                 <a href="{{ post.url | url }}">
                     {% if post.data.title %}
@@ -10,26 +10,14 @@
                     {% endif %}
                 </a>
             </h3>
-            {% if post.data.summary %}
+            <div class="metadata">
+                <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
+                {% set tags = post.data.tags %}
+                <div class="tag-list">{% include "components/tag-list-inline.njk" %}</div>
+            </div>
+            {% if post.data.excerpt %}
                 <p>
-                    {{ post.data.summary }}
-                </p>
-            {% endif %}
-            <p>
-                <time datetime="{{ post.date | machineDate }}">
-                    <small>{{ post.date | readableDate }} by
-                        <a href="/authors/{{ post.data.author | slug }}/">{{ post.data.author }}</a>
-                    </small>
-                </time>
-            </p>
-            {% if post.data.tags %}
-                <p>
-                    {% for tag in post.data.tags %}
-                        {%- if tag != "post" -%}
-                            {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-                            <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
-                        {%- endif -%}
-                    {% endfor %}
+                    {{ post.data.excerpt }}
                 </p>
             {% endif %}
         </article>

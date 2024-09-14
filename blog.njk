@@ -12,19 +12,24 @@ eleventyNavigation:
   order: 2
 ---
 
-{{ layoutContent | safe }}
-{% set postslist = posts %}
-{% include "components/postslist.njk" %}
-<nav aria-labelledby="my-pagination-links">
-    {% if page.url != pagination.href.first %}
-        <a href="{{ pagination.href.first }}" {% if page.url == pagination.href.first %} aria-current="page" {% endif %}>&lt&lt</a>
-    {% endif %}
-    {%- for pageEntry in pagination.pages %}
-        <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page" {% endif %}>{{ loop.index }}</a>
-    {%- endfor %}
-    {% if page.url != pagination.href.last %}
-        <a href="{{ pagination.href.last }}" {% if page.url == pagination.href.last %} aria-current="page" {% endif %}>
-            &gt&gt
-        </a>
-    {% endif %}
-</nav>
+<h1>Colleciton of thoughts and learnings...</h1>
+<p>This is a documentation of everything that I am learning and my thoughts on various topics. I hope this will be
+    helpful for someone. Or, an enjoyable read, at the least. Go take a dip!</p>
+<h2>Latest Posts</h2>
+<hr>
+    {{ layoutContent | safe }}
+    {% set postslist = posts %}
+    {% include "components/postslist.njk" %}
+    <nav aria-labelledby="my-pagination-links">
+        {% if page.url != pagination.href.first %}
+            <a href="{{ pagination.href.first }}" {% if page.url == pagination.href.first %} aria-current="page" {% endif %}>&lt&lt</a>
+        {% endif %}
+        {%- for pageEntry in pagination.pages %}
+            <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page" {% endif %}>{{ loop.index }}</a>
+        {%- endfor %}
+        {% if page.url != pagination.href.last %}
+            <a href="{{ pagination.href.last }}" {% if page.url == pagination.href.last %} aria-current="page" {% endif %}>
+                &gt&gt
+            </a>
+        {% endif %}
+    </nav>

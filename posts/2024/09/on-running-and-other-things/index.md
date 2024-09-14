@@ -1,13 +1,14 @@
 ---
 title: "On Running and other things..."
 date: "2024-09-07"
-categories: 
+categories:
   - "musings"
-tags: 
+tags:
   - "health"
   - "running"
   - "wellbeing"
 coverImage: "first_half_marathon-scaled.jpg"
+excerpt: Though, winning finisher medals at various marathons is a motivation to keep a specific training plan, the “Centenarian Decathlete” is still the bigger motivation behind all this.
 ---
 
 On 25 August this year, I ran my first half marathon. I had tears as I crossed the finish line at the Gachibowli stadium in Hyderabad. It was a pleasant morning with cool breeze and an overcast weather to rescue. Though I felt I strugled towards the end. I finished with a better timing than I hoped for.

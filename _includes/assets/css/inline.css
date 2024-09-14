@@ -17,10 +17,10 @@
 	--text-sm: 0.875rem;
 	--text-base: 1rem;
 	--text-lg: 1.25rem;
-	--text-xl: 1.25rem;
-	--text-2xl: 1.5rem;
-	--text-3xl: 1.875rem;
-	--text-4xl: 2.25rem;
+	--text-xl: 1.75rem;
+	--text-2xl: 2.05rem;
+	--text-3xl: 2.315rem;
+	--text-4xl: 2.615rem;
 	--text-5xl: 3rem;
 	--text-6xl: 5rem;
 
@@ -157,6 +157,24 @@ a {
 	color: var(--link);
 }
 
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	text-decoration: none;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+	text-decoration: underline;
+}
+
 h1,
 h1 a {
 	font-size: var(--text-4xl);
@@ -183,12 +201,26 @@ h5 a {
 	font-style: italic;
 }
 
-.main-content *+*,
+hr {
+	border: 0;
+	border-block-end: 1px dotted var(--contrast-3);
+	width: 100%;
+}
+
+.layout__cozy *+*,
 .main-sidebar *+ul,
 .main-sidebar *+h2,
 .main-sidebar *+p,
 .main-sidebar *+div
 {
+	margin-block-start: var(--space-3);
+}
+
+.layout__compact *+* {
+	margin-block-start: var(--space-1);
+}
+
+.post-list +* {
 	margin-block-start: var(--space-3);
 }
 
