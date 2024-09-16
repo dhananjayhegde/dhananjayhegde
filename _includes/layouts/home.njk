@@ -4,3 +4,13 @@ section: home
 ---
 
 {{ layoutContent | safe }}
+<h2>Latest Posts</h2>
+{% set all = collections.post | reverse %}
+{% set postslist = all.slice(0,5) %}
+{% include "components/postslist.njk" %}
+{% include "components/social-share.njk" %}
+<nav class="content-footer" aria-label="pagination">
+    <span></span>
+    <a href="{{ '/blog/' | url }}">All Posts</a>
+    <span></span>
+</nav>

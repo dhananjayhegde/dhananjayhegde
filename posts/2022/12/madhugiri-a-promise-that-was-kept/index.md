@@ -1,9 +1,10 @@
 ---
 title: "Madhugiri - A promise that was kept"
 date: "2022-12-19"
-categories: 
+categories:
   - "travel"
 coverImage: "IMG_20220709_123151474-scaled.jpg"
+excerpt: Promise to go for a road trip was due for a long long time.  But where to go?  Fortunately, Bengaluru and its surrounding villages and towns have a lot to offer.  We zeroed in on Madhugiri this time.
 ---
 
 By July this year, promise had been due for a very long time. The promise I made to Aakash that we would go for a road trip.

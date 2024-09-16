@@ -55,7 +55,6 @@ module.exports = function (eleventyConfig) {
       return coll;
     }, {});
 
-    console.table(seriesColl);
     return seriesColl;
   });
 
@@ -88,24 +87,32 @@ module.exports = function (eleventyConfig) {
     const tagsObject = {};
     collection.getFilteredByTags("post").forEach((item) => {
       if (!item.data.categories) return;
-      item.data.categories.forEach((tag) => {
-        if (typeof tagsObject[tag] === "undefined") {
-          tagsObject[tag] = 1;
+      item.data.categories.forEach((cat) => {
+        if (typeof tagsObject[cat] === "undefined") {
+          tagsObject[cat] = {
+            count: 1,
+            posts: [],
+          };
         } else {
-          tagsObject[tag] += 1;
+          tagsObject[cat].count += 1;
         }
+        tagsObject[cat].posts.push(item);
       });
     });
 
     const tagList = [];
     Object.keys(tagsObject).forEach((tag) => {
-      tagList.push({ name: tag, postCount: tagsObject[tag] });
+      tagList.push({
+        name: tag,
+        postCount: tagsObject[tag].count,
+        posts: tagsObject[tag].posts,
+      });
     });
 
     return tagList.sort((a, b) => b.postCount - a.postCount);
   });
 
-  // Category list and count of posts
+  // Posts by Year
   eleventyConfig.addCollection("postYearList", (collection) => {
     const tagsObject = {};
     collection.getFilteredByTags("post").forEach((item) => {
@@ -113,23 +120,32 @@ module.exports = function (eleventyConfig) {
       const year = new Date(item.data.date).getFullYear();
 
       if (typeof tagsObject[year] === "undefined") {
-        tagsObject[year] = 1;
+        tagsObject[year] = {
+          count: 1,
+          posts: [],
+        };
       } else {
-        tagsObject[year] += 1;
+        tagsObject[year].count += 1;
       }
+      tagsObject[year].posts.push(item);
     });
 
     const tagList = [];
     Object.keys(tagsObject).forEach((year) => {
-      tagList.push({ year: year, postCount: tagsObject[year] });
+      tagList.push({
+        year: year,
+        postCount: tagsObject[year].count,
+        posts: tagsObject[year].posts,
+      });
     });
 
-    return tagList.sort((a, b) => b.postCount - a.postCount);
+    console.table(tagList);
+    return tagList.sort((a, b) => b.year - a.year);
   });
 
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy");
+    return DateTime.fromJSDate(dateObj).toFormat("LLLL dd, yyyy");
   });
 
   // Date formatting (machine readable)
@@ -176,6 +192,23 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin/");
   // We additionally output a copy of our CSS for use in Decap CMS previews
   eleventyConfig.addPassthroughCopy("_includes/assets/css/inline.css");
+
+  eleventyConfig.addPassthroughCopy(
+    "_includes/assets/fontawesome/webfonts/fa-brands-400.woff2"
+  );
+  eleventyConfig.addPassthroughCopy(
+    "_includes/assets/fontawesome/webfonts/fa-regular-400.woff2"
+  );
+  eleventyConfig.addPassthroughCopy(
+    "_includes/assets/fontawesome/webfonts/fa-solid-900.woff2"
+  );
+  eleventyConfig.addPassthroughCopy(
+    "_includes/assets/fontawesome/webfonts/fa-v4compatibility.woff2"
+  );
+
+  eleventyConfig.addPassthroughCopy(
+    "_includes/assets/fontawesome/css/all.min.css"
+  );
 
   /* Markdown Plugins */
   let markdownIt = require("markdown-it");

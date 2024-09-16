@@ -1,14 +1,16 @@
 ---
 title: "Writing A Units for RAP Business Objects"
 date: "2023-08-12"
-categories: 
+series: ABAP RESTFull Application Programming (RAP)
+categories:
   - "abap"
   - "sap"
-tags: 
+tags:
   - "aunits"
   - "rap"
   - "sap"
   - "testing"
+excerpt: How to write robust, automated ABAP Unit tests for RAP Business Objects in 2024?  Explore testability of RAP model and what framework has to offer in this regard.
 ---
 
 You have developed a business object and now you want to write ABAP Unit tests for it. But before you jump into it, you should decide " what is that you want to achieve from doing so"?
@@ -25,7 +27,7 @@ There are different aspects to testing RAP Business Objects:
 
 1. Test each method (determination, validation, action, CRUD methods) individually by mocking EMLs and any other dependencies
 
-3. Test the draft behavior by mocking databases dependencies
+2. Test the draft behavior by mocking databases dependencies
 
 ## Test each methods individually
 
@@ -59,12 +61,12 @@ Suppose,
 
 Now, if you write a test that executes an EML something like this:
 
-```
-MODIFY ENTITIES OF MySampleBO 
-   ENTITY MySampleRootEntity 
-       UPDATE FIELDS ( Material ) 
-       FROM VALUE #( ( %key-KeyField = '12345' 
-                        Material     = 'MaterialB' ) ) 
+```abap
+MODIFY ENTITIES OF MySampleBO
+   ENTITY MySampleRootEntity
+       UPDATE FIELDS ( Material )
+       FROM VALUE #( ( %key-KeyField = '12345'
+                        Material     = 'MaterialB' ) )
    FAILED DATA(ls_failed).
 ```
 

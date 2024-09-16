@@ -1,27 +1,29 @@
 ---
 title: "Hierarchy with Actions - Fiori Elements List Report page with ODATA V4 and RAP"
 date: "2023-11-20"
-categories: 
+series: Hierarchy with RAP and OData 4
+categories:
   - "abap"
   - "sap"
-tags: 
+tags:
   - "abap"
   - "hierarchy"
   - "restful-application-programming"
 coverImage: "Item-hierarchy.png"
+excerpt: How to implement actions on hierarchical table using hierarchy capabilities offered by OData v4 and RAP? Read further to know...
 ---
 
 We we will continue from where we left off at in the previous post. If you have not seen it yet, then check it out here - [Show Hierarchy on Fiori Elements List Report Page with RAP + ODATA V4](https://dhananjayhegde.in/2023/11/show-hierarchy-on-fiori-elements-list-report-page-with-rap-odata-v4/)
 
 With S/4 HANA Cloud 2311 release, hierarchy with one click actions are supported on ODATA V4. To add actions, we use RAP BDEF (Behavior Definition). We will dicuss some limitations that exist as of 2311, some errors we may see etc.
 
-All these objects are created and tested on BTP Trial account as of today when this post was first published i.e. on November 20, 2023. All ABAP source code used here are available in this [Git Repo](https://github.com/dhananjayhegde/abap-rap-samples-new). Feel free to clone it using [abapGit](https://abapgit.org/) and use it for testing. All the objects created for this specific post are available in package **ZDH\_V4\_HIER\_ACTIONS**.
+All these objects are created and tested on BTP Trial account as of today when this post was first published i.e. on November 20, 2023. All ABAP source code used here are available in this [Git Repo](https://github.com/dhananjayhegde/abap-rap-samples-new). Feel free to clone it using [abapGit](https://abapgit.org/) and use it for testing. All the objects created for this specific post are available in package **ZDH_V4_HIER_ACTIONS**.
 
 ## Initial Hurdle
 
 In the previous post, we discussed read-only application with hierarchy. We will create a BDEF for the same root CDS views viz. `ZDH_R_OrderItemTP` and `ZDH_C_OrderItemTP`. There is nothing fancy here. Also, since only actions are supported, we disable standard CUD operations and add an instance action `SetToComplete` whose implementation does not matter at this moment.
 
-```
+```abap
 managed implementation in class zcl_bp_dh_r_orderitemtp unique;
 strict ( 2 );
 
@@ -46,7 +48,7 @@ etag master LastChangedAt
 }
 ```
 
-If we now try to open our Service Biniding, we see an error - "**Error in entity 'ZDH\_C\_ORDERITEMTP(CDS)': Source view ZDH\_C\_ORDERITEMTP cannot be transactional**".
+If we now try to open our Service Biniding, we see an error - "**Error in entity 'ZDH_C_ORDERITEMTP(CDS)': Source view ZDH_C_ORDERITEMTP cannot be transactional**".
 
 ![](images/service_binding_error.png)
 
@@ -76,7 +78,7 @@ To keep the post succinct, I will not post the code snippets of all these CDS en
 
 Our BDEF looks like this - we add one action to `OrderItem` entity named `SetToComplete`. Implementation does not matter at the moment. Some parts of the code are obscured for brevity:
 
-```
+```abap
 managed implementation in class zcl_bp_dh_r_orderheadertp unique;
 strict ( 2 );
 
@@ -122,7 +124,7 @@ etag master LastChangedAt
 
 Do not forget to expose the action in BDEF `ZDH_C_OrderHeaderTP`. And also add required `@UI` annotations to CDS view or MDE (Meta Data Extension) to show the action on the list report:
 
-```
+```abap
 @EndUserText.label: 'Order Item Projection'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Search.searchable: true
@@ -131,7 +133,7 @@ Do not forget to expose the action in BDEF `ZDH_C_OrderHeaderTP`. And also add r
 define view entity ZDH_C_OrderItemTP_2
   as projection on ZDH_R_OrderItemTP_2
 {
-      
+
       @UI.selectionField: [{ position: 10 }]
   key OrderId,
   key ItemNo,
@@ -148,14 +150,14 @@ define view entity ZDH_C_OrderItemTP_2
 
 And Service Definition would look like this - it exposes only the `OrderItem` entity:
 
-```
+```abap
 @EndUserText.label: 'Service Definition for Order with Manage BDEF'
 define service ZDH_SD_ORDERITEM_HIER_ACT {
   expose ZDH_C_OrderItemTP_2 as OrderItem;
 }
 ```
 
-Create a service binding for this with Biding type "OData V4 - UI" and publish it. I have named it "ZDH\_SB\_UI\_V4\_ORDERITM\_HIER\_ACT". With this, if we now preview the app from Service Binding, we should be able to see the hierarchy on list report page along with the action.
+Create a service binding for this with Biding type "OData V4 - UI" and publish it. I have named it "ZDH_SB_UI_V4_ORDERITM_HIER_ACT". With this, if we now preview the app from Service Binding, we should be able to see the hierarchy on list report page along with the action.
 
 ![](images/hierarchy_with_action-1024x412.png)
 
@@ -165,8 +167,8 @@ If you want to, most porbably you will, generate a Fiori Elements app and show t
 
 That's a wrap for now. Let me know how you enjoyed this post and also if you have tried this. If yes, what was your experience with hierarchy + actions. What actions did you implement and if you faced any specific issues.
 
-Also some food for thought -
-
-- When a parent item is selected and an action is executed which internally applies the action to all the descendant items (not just immediate child items) and you want to refresh the affected fields (say, `Status`) for the selected parent item as well all the affected descendant items automatically without having to click on "Go" button or page refresh - how would you do that? let me know your thoughts in the comment - I will write a post on that some time in the future!
+> ### Also some food for thought
+>
+> When a parent item is selected and an action is executed which internally applies the action to all the descendant items (not just immediate child items) and you want to refresh the > affected fields (say, `Status`) for the selected parent item as well all the affected descendant items automatically without having to click on "Go" button or page refresh - how would you do that? let me know your thoughts in the comment - I will write a post on that some time in the future!
 
 Cheers!

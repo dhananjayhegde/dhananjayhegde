@@ -1,15 +1,16 @@
 ---
 title: "CAP - Show text and value together on Fiori UI"
 date: "2023-07-30"
-categories: 
+categories:
   - "cap"
   - "sap"
-tags: 
+tags:
   - "annotation"
   - "cap"
   - "cloud-application-programming"
   - "text"
   - "textarrangement"
+excerpt: How to show text for a code on Fiori Elements applications using annotations in CAP model.
 ---
 
 If you want to achieve something like below, here is how you can do it with CAP annotations:
@@ -20,7 +21,7 @@ Here, we hvae the code/value "2" and the text displayed before that. This text c
 
 This is achieved with the help of two annotaions from Commons vocabulary.
 
-```
+```abap
 @Common.Text
 @Common.TextArrangement
 ```
@@ -37,9 +38,9 @@ This gives us an advantage. We get two predefined fields `name` and `descr` . Re
 
 Now, within CDS annotaiton file (literally any file with exension .cds inside your db/ folder next to schema.cds file, add the below annotation
 
-```
+```abap
 annotate golf.Result with {
-    code @( 
+    code @(
         Common.Text: name,
         Common.TextArrangement: #TextFirst
     );

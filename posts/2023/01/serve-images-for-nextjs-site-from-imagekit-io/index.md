@@ -9,6 +9,7 @@ tags:
   - nextjs
   - tailwindcss
 coverImage: masonry.png
+excerpt: How to server images for a Next JS site from ImageKit.io? I had this experience when I was developing a site for my wife's business.  May be, this will help you in some way...
 ---
 
 In this post, we will create a simple NextJS site and create a masonry image gallery serving images from ImageKit.io CDN.
@@ -291,13 +292,15 @@ You will be greeted with a beautiful masonry layout!
 
 <figure>
 
-![](images/masonry-1024x500.png)
+![masonry-layout](images/masonry.png)
 
 <figcaption>
 
 masonry layout with top-right image hovered
 
 </figcaption>
+
+![masonry-layout-hovered](images/masonry-large.png)
 
 </figure>
 

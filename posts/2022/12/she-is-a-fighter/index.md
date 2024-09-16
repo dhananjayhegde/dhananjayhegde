@@ -1,16 +1,15 @@
 ---
 title: "She is a fighter"
 date: "2022-12-27"
-categories: 
+categories:
   - "stories"
 coverImage: "figther_spirit.png"
+excerpt: Some stories live with you and die with you.  They may be real or fictious.  But does it matter?
 ---
 
-> ```
-> Some stories live with you and die with you.  They may be real or fictious.  But does it matter? 
-> ```
-> 
-> \- who knows!
+> Some stories live with you and die with you. They may be real or fictious. But does it matter?
+>
+> \- by who knows!
 
 ## Part 1 - An Inland letter
 

@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+title: "Series"
+date: 2023-09-17
+permalink: /series/index.html
+eleventyNavigation:
+  key: Series
+  order: 3
+pagination:
+  data: collections.series
+  size: Infinity
+---
+
+<h1>Tech Series</h1>
+<p>
+  Collection of posts grouped into a series so that it's earier to follow along. Some are how-tos and some others may be
+  are my thoughts on experiementing with some stuffs.
+</p>
+<section class="layout__compact">
+  {% for item in pagination.items %}
+    <h3>
+      <a href="/series/{{ item | slug }}">{{ item | safe }}
+      </a>
+    </h3>
+    <ol class="layout__condense">
+      {% for post in collections.series[item] %}
+        <li>
+          <a href="{{ post.page.url | url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ol>
+  {% endfor %}
+</section>
+{% include "components/social-share.njk" %}

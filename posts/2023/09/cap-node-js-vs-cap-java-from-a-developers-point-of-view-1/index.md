@@ -1,14 +1,16 @@
 ---
 title: "CAP Node.js vs CAP Java: From a Developer's Point of View #1"
 date: "2023-09-09"
-categories: 
+series: CAP Node JS v/s CAP Java
+categories:
   - "cap"
   - "sap"
-tags: 
+tags:
   - "cap"
   - "java"
   - "nodejs"
   - "sap"
+excerpt: A comparison of CAP Java v/s CAP Node Js from a developer's point of view
 ---
 
 This Wednesday, [SAP Developer Challenge for September 2023](https://blogs.sap.com/2023/09/06/sap-developer-challenge-full-stack-sap-cap-sap-fiori-elements/#:~:text=After%20setting%20up%20the%20SAP,Stack%20Cloud%20Application%E2%80%9D%20dev%20space.&text=Access%20the%20dev%20space%20by,the%20state%20changes%20to%20running.&text=On%20the%20Template%20Wizard%20page,and%20click%20the%20Start%20button.) kicked off with its [first task](https://groups.community.sap.com/t5/application-development-discussions/sap-developer-challenge-full-stack-project-set-up-and-database-modeling/td-p/284674). This time, we will be building a full stack application using CAP and Fiori Elements. We are free to choose either CAP Node.js or CAP Java to develop our data models and ODATA service. Whereas for frontend, we will use Fiori Elements.
@@ -62,37 +64,37 @@ CAP Node.js project has an `app` directory which is missing in case of CAP Java 
 There is not much difference between these two when it comes to defining your CDS data models (entities, types, aspects etc.). Let's say, as part of [Task 1 of the developer challenge](https://groups.community.sap.com/t5/application-development-discussions/sap-developer-challenge-full-stack-project-set-up-and-database-modeling/td-p/284674), we add below data models to our project, it looks exactly the same in either case.
 
 ```abap
-using { cuid, managed } from '@sap/cds/common'; 
+using { cuid, managed } from '@sap/cds/common';
 
-namespace fullstack_dev_challenge; 
+namespace fullstack_dev_challenge;
 
-entity Tests: cuid, managed { 
+entity Tests: cuid, managed {
     title : String(30);
     description: String(111);
     questions: Composition of many Questions on questions.test = $self;
-} 
+}
 
-entity Questions: cuid{ 
+entity Questions: cuid{
     text: String(111);
     test: Association to one Tests;
     answers: Composition of one Answers;
-} 
+}
 
-aspect Answers: cuid { 
+aspect Answers: cuid {
     text: String;
-} 
+}
 ```
 
 As of now, exposing them as service also looks quite same. within 'srv' directory, you create a file named `cat-service.cds` and then expose the entities as below:
 
 ```abap
-using fullstack_dev_challenge from '../db/data-model';  
+using fullstack_dev_challenge from '../db/data-model';
 
-service DevChallengeService @(path: '/dev-challenge') {  
-    @odata.draft.enabled: true 
-    entity Tests as projection on fullstack_dev_challenge.Tests; 
+service DevChallengeService @(path: '/dev-challenge') {
+    @odata.draft.enabled: true
+    entity Tests as projection on fullstack_dev_challenge.Tests;
     entity Questions as projection on fullstack_dev_challenge.Questions;
-} 
+}
 ```
 
 I say "as of now" because, once we start adding custom logic to our service, I think this part looks very different in CAP Node.js and CAP Java.

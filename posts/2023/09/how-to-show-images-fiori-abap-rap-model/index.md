@@ -1,14 +1,16 @@
 ---
 title: "How to Show Images - Fiori + ABAP RAP Model"
 date: "2023-09-19"
-categories: 
+series: ABAP RESTFull Application Programming (RAP)
+categories:
   - "abap"
   - "sap"
-tags: 
+tags:
   - "abap"
   - "fiori"
   - "restful-application-programming"
   - "sap"
+excerpt: How to show images on Fiori Elements app using attachment capabilities offered by RAP
 ---
 
 In this post I will show you how you can show images on tables as well as object page headers on a Fiori Elements List Report Object Page application using annotations.
@@ -23,7 +25,7 @@ Basic knowledge of working with RAP Managed business objects with draft and work
 
 For this example, let's assume we have a Order Header and Order Item tables with Order Item table containing below fields
 
-```
+```abap
 @EndUserText.label : 'Order Item'
 @AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
 @AbapCatalog.tableCategory : #TRANSPARENT
@@ -55,7 +57,7 @@ Let's add 3 more fields to this table so that we can also store the image RAW da
 
 FileName and MimeType fields are of type CHAR128.
 
-```
+```abap
 @EndUserText.label : 'Order Item'
 @AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
 @AbapCatalog.tableCategory : #TRANSPARENT
@@ -98,7 +100,7 @@ To keep things simple, I hadded the fields to my RAP TP views as below. Importan
 
 This tells RAP framework that the field `attachment` holds a LOB content and its mimeType is stored in field `MimeType` and its fileName is stored in field `FileName`. That is all you have to do. Rest is taken care by 'RESTfull' framework. (Is that why it is called RESTful? That you have to do very little and the 'REST' is handle by the framework?).
 
-```
+```abap
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Basic CDS view for Order Item'
@@ -118,7 +120,7 @@ define view entity ZDH_I_OrderItem_M
 .
 .
 .
-      
+
       @Semantics.largeObject:{
         mimeType: 'MimeType',
         fileName: 'FileName',
@@ -158,7 +160,7 @@ Looking into [UI5 inspector](https://chrome.google.com/webstore/detail/ui5-inspe
 
 In your consumption view, add annotation `@Semantics.imageUrl: true` to `attachment` field. Note, you cannot add this annotatin in the Meta Data Extension (MDE) file.
 
-```
+```abap
 @EndUserText.label: 'Projetion view ZDH_I_OrderItem_M'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Metadata.allowExtensions: true
@@ -196,7 +198,7 @@ If you inspect it now using UI5 inspector, you will see that the file is wrapped
 
 This is just a matter of one annotation after having done all these. Within the MDE of Item entity, add the annotation `@UI.headerInfo.imageUrl` and point it to `Attachment` field
 
-```
+```abap
 @Metadata.layer: #CORE
 @UI.headerInfo: {
     title: {
@@ -217,7 +219,7 @@ annotate view ZDH_C_OrderItem_M with
 
 //  OrderId;
 //  ItemNo;
-//  
+//
 }
 ```
 

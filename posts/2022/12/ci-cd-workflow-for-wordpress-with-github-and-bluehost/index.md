@@ -1,14 +1,15 @@
 ---
 title: "CI/CD Workflow for WordPress with GitHub and BlueHost"
 date: "2022-12-04"
-categories: 
+categories:
   - "wordpress"
-tags: 
+tags:
   - "cd"
   - "deploy"
   - "github"
   - "wordpress"
   - "workflow"
+excerpt: My workflow for deploying changes to Wordpress site hosted on Bluehost using GitHub actions with every pull request.  This made my life way eaiser while maintaining my personal blog site.
 ---
 
 I spent a whole day figuring out how to continuously deploy WordPress theme and plugin development using GitHub while developing and running WordPress also locally. In the past, I simply used SFTP client to synchronize/upload all the changed files to hosting provider's cPanel file manager manually. But that is tedious and error prone. Moreover, also time consuming. I could finally set up a CD workflow for my WordPress development. So, I am going to just write it down here for my future self.
@@ -20,7 +21,8 @@ Let's say you are using BlueHost hosting provider for your WordPress site and wa
 - BlueHost hosting provider \[shared/dedicated\]. I am using a shared hosting
 
 - **SSH Shell access to BlueHost** -
-    - it is not enabled by default. Contact their support using Chat and they will enable it immediately
+
+  - it is not enabled by default. Contact their support using Chat and they will enable it immediately
 
 - GitHub account
 
@@ -38,7 +40,7 @@ Copy the HTTPS GitHub repo URL. We will need it later.
 
 It should look something like this
 
-```
+```shell
 https://github.com/<youruserid>/mywpsiterepo.git
 ```
 
@@ -50,7 +52,7 @@ I am using VS Code terminal to create git repo. But you can use any command line
 
 Connect your local repo to remote GitHub repo using below command (while within the root of your local git repo directory)
 
-```
+```shell
 git remote add origin https://github.com/<youruserid>/mywpsiterepo.git
 ```
 
@@ -64,9 +66,30 @@ In that case, you might want to
 
 - add below .gitignore file to ensure you do not push complete Wordpress site code along with theme and plugins that are installed locally \[Noe this is only suggestive, and you may change it as you like\]
 
-Note that these paths are relative to root directory of local git repo. In my case, it is the "wp-content" directory. Therefore, all paths relative that directory.
+Note that these paths are relative to root directory of local git repo. In my case, it is the "wp-content" directory. Therefore, all paths are relative to that directory.
 
-<script src="https://gist.github.com/dhananjayhegde/91138057b0738545bb120eab71255698.js"></script>
+```gitignore
+/*
+.github/*
+!.gitignore
+
+!plugins
+plugins/*
+!plugins/dhana-plugin
+!plugins/tattvahatharestapi
+
+!themes
+themes/*
+!themes/twenty3-child
+
+!themes/dhanatheme
+themes/dhanatheme/node_modules
+themes/dhanatheme/vendor
+
+!mu-plugins
+mu-plugins/*
+!mu-plugins/tattva_custom_post_types.php
+```
 
 I found this [YoutTube video](https://youtu.be/l6uZtXb888k?t=301) helpful on this topic.
 
@@ -88,11 +111,11 @@ Instead, what you can do is
 
 - Copy the public key \[location of this file is shown once the keys are generated\]. By default, on windows laptops, this is
 
-```
+```shell
 c:/Users/<userid>/.ssh/
 ```
 
-- Here, you will find 2 files => **id\_rsa.pub has the public key, id\_rsa has the private key**. You can open them in any text editor, but **never change their content**.
+- Here, you will find 2 files => **id_rsa.pub has the public key, id_rsa has the private key**. You can open them in any text editor, but **never change their content**.
 
 - Go to BlueHost => Advanced => SSH and then use "Import" option to import this key \[do not enter passphrase here too\]
 
@@ -109,18 +132,18 @@ c:/Users/<userid>/.ssh/
 - Go to "Advanced" section of your BlueHost account and find the user ID you need to use for SSH access. It is usually under "General Information" => "Current User" section. Let's say it is "myadminuser"
 
 - Your SSL URL would be something like this  
-    _myadminuser@mydefaultdomain.com_
+   _myadminuser@mydefaultdomain.com_
 
 - Or you can also find the IP address of your hosting by going to  
-    Advanced => General Information => Server Information \[link\]  
-    Let's say it is 192.123.22.33  
-    Then you SSL URL would be _myadminuser@192.123.22.33_
+   Advanced => General Information => Server Information \[link\]  
+   Let's say it is 192.123.22.33  
+   Then you SSL URL would be _myadminuser@192.123.22.33_
 
 - Make sure you have securely saved the private key you generated \[do not share this with anybody\]. Hence the name "private" key.
 
 ## GitHub Action for CD
 
-[This guide on CSS Tricks is very elaborate and I found it very useful.](https://css-tricks.com/continuous-deployments-for-wordpress-using-github-actions/) So, I am not going to explain again. I assume you will follow that and especially create the "secrets" named "DEPLOY\_KEY" in your repo.
+[This guide on CSS Tricks is very elaborate and I found it very useful.](https://css-tricks.com/continuous-deployments-for-wordpress-using-github-actions/) So, I am not going to explain again. I assume you will follow that and especially create the "secrets" named "DEPLOY_KEY" in your repo.
 
 In my case I changed a couple of things:
 
@@ -134,7 +157,30 @@ However, if your destination directory is your custom/child theme directory, the
 
 That said, my GitHub Action YAML file looks like this
 
-<script src="https://gist.github.com/dhananjayhegde/ae82900fdae17e9eecb9eb2f502b25d3.js"></script>
+```yaml
+name: Deployment
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Sync
+        env:
+          dest: "dhananja@dhananjayhegde.in:/home2/dhananja/public_html/wp-content/"
+        run: |
+          echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+          chmod 600 ./deploy_key
+          rsync -chav \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            --exclude /deploy_key \
+            --exclude /.git/ \
+            --exclude /.github/ \
+            --exclude /node_modules/ \
+            ./ ${{env.dest}}
+```
 
 ## Finally, the development workflow
 
@@ -144,13 +190,13 @@ Every time you want make some change/develop new feature, you can:
 
 - Pull latest changes from Report repo into your local repo main/master branch
 
-```
+```shell
 git pull origin main
 ```
 
 - Checkout to a new feature branch
 
-```
+```shell
 git checkout -b feature/some-new-theme
 ```
 
@@ -158,13 +204,13 @@ git checkout -b feature/some-new-theme
 
 - when you are ready, push the feature branch \[NOT the main branch\] to remote repo
 
-```
+```shell
 git push origin feature/some-new-theme
 ```
 
 - checkout to main branch
 
-```
+```shell
 git checkout main
 ```
 
@@ -182,7 +228,7 @@ git checkout main
 
 - On your desktop \[making sure you are on the main branch\], pull latest code from remote repo
 
-```
+```shell
 git pull origin main
 ```
 

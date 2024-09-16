@@ -20,16 +20,19 @@ eleventyNavigation:
     {{ layoutContent | safe }}
     {% set postslist = posts %}
     {% include "components/postslist.njk" %}
-    <nav aria-labelledby="my-pagination-links">
+    {% include "components/social-share.njk" %}
+    <nav class="post-list-pagination" aria-labelledby="my-pagination-links">
         {% if page.url != pagination.href.first %}
-            <a href="{{ pagination.href.first }}" {% if page.url == pagination.href.first %} aria-current="page" {% endif %}>&lt&lt</a>
+            <a href="{{ pagination.href.first }}" {% if page.url == pagination.href.first %} aria-current="page" {% endif %}>
+                <i class="fa-solid fa-angles-left"></i>
+            </a>
         {% endif %}
         {%- for pageEntry in pagination.pages %}
             <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page" {% endif %}>{{ loop.index }}</a>
         {%- endfor %}
         {% if page.url != pagination.href.last %}
             <a href="{{ pagination.href.last }}" {% if page.url == pagination.href.last %} aria-current="page" {% endif %}>
-                &gt&gt
+                <i class="fa-solid fa-angles-right"></i>
             </a>
         {% endif %}
     </nav>

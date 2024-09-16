@@ -1,8 +1,9 @@
 ---
 title: "Getting off the mark is the main hurdle"
 date: "2022-10-24"
-categories: 
+categories:
   - "musings"
+excerpt: Once you are off the mark, taken the plunge, it becomes easier to get going. Most often than not, barrier is in the head.
 ---
 
 As firecrackers light up the night sky, I sti by window and try to get past this hurdle.

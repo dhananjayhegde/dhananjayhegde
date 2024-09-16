@@ -3,7 +3,8 @@ title: "A Road and a Fire Engine"
 date: "2022-12-31"
 categories:
   - "stories"
-coverImage: "/images/fireengine-scaled.jpg"
+coverImage: "images/fireengine-scaled.jpg"
+excerpt: Fire engine did not have a choice though. Because you see, a fire engine does not amble around. When it starts out, it knows where exactly it needs to go, when it should reach and what it should do.
 ---
 
 It was unfortunate that a fire engine came to my village once. Unfortunate not because it came, but because it had to. It was a village where a bus would not come once a day. Let alone bus, even a road refused to come to the village for very long. So, I can almost forgive the bus.
@@ -32,17 +33,9 @@ Did I tell you the village was very small? It was so small that 4 of the 5 house
 
 I know you are struggling. Before you tell me that my writing is bad or I tell you that your imagination is bad, it’s better I show you a picture. So, here is a map I drew. Take a good look. That box in red color is the cowshed; the central piece of this story.
 
-<figure>
-
-![](/images/village_map_1-1024x651.png)
-
-<figcaption>
+![](images/village_map_1.png)
 
 Village Map - Not to mesure. H = House, CS = Cowshed
-
-</figcaption>
-
-</figure>
 
 Now that we have established the environment in which this story was taking place, let’s come to that fateful day.
 

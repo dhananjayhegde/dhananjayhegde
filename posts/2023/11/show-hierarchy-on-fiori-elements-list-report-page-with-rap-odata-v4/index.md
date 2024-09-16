@@ -1,14 +1,16 @@
 ---
 title: "Show Hierarchy on Fiori Elements List Report Page with RAP + ODATA V4"
 date: "2023-11-19"
-categories: 
+series: Hierarchy with RAP and OData 4
+categories:
   - "abap"
   - "sap"
-tags: 
+tags:
   - "abap"
   - "hierarchy"
   - "restful-application-programming"
 coverImage: "Item-hierarchy.png"
+excerpt: How to use hierarchy capabilities offered by OData v4 and RAP to show a hierarchical table on Fiori Elements List Report page?  Read further to know...
 ---
 
 With S/4 HANA 2308 Cloud release, ABAP and Fiori Elements support ODATA V4 hierarchy based applications with read-only capabilities. In this post, we will discuss how to show such a hierarchy on the List Report page of a Fiori Elements application.
@@ -21,7 +23,7 @@ For this demo, we will create a single table named `zdh_t_order_item` which has,
 
 This table looks like this:
 
-```
+```abap
 @EndUserText.label : 'Order Item'
 @AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
 @AbapCatalog.tableCategory : #TRANSPARENT
@@ -52,7 +54,7 @@ define table zdh_t_order_item {
 
 Now, create a CDS view that makes up the Node of our hierarchy. Also define an association `_Parent` that signifies the relationship between parent and child items. Name of this association can be anything.
 
-```
+```abap
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Hierarchy Node For Order Item'
@@ -79,7 +81,7 @@ define view entity ZDH_I_OrderItemNode
       NetPrice,
       Currency,
       Status,
-      
+
       _Parent
 }
 
@@ -89,7 +91,7 @@ You may ignore the CDS view `ZDH_I_OrderItemBasic`and choose to directly select 
 
 Here, `_Parent` association is important. Also, this CDS view will be used as a source for both RAP transactional processing CDS view and the CDS Hierarchy.
 
-## CDS Hierarchy - ZDH\_I\_OrderItemHierarchy
+## CDS Hierarchy - ZDH_I_OrderItemHierarchy
 
 Create a CDS Hierarchy by selecting from the CDS View creatred above. Note that
 
@@ -103,7 +105,7 @@ Create a CDS Hierarchy by selecting from the CDS View creatred above. Note that
 
 It looks like this in our case - `ZDH_I_OrderItemHierarchy`
 
-```
+```abap
 @EndUserText.label: 'Order Item Hierarchy'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 define hierarchy ZDH_I_OrderItemHierarchy
@@ -129,7 +131,7 @@ We did not add `directory` option to CDS Hierarchy definition because we want to
 
 ## Transactional Processing and Projection Views
 
-### ZDH\_R\_OrderItemTP
+### ZDH_R_OrderItemTP
 
 - Create a transactional processing `root` view entity which will be used to create RAP Behavior Definition later - `ZDH_R_OrderItemTP`
 
@@ -139,7 +141,7 @@ We did not add `directory` option to CDS Hierarchy definition because we want to
 
 - Here we add a calculated field `FormattedItemNo` which will be used to show Order Number and Item Number concatenated (this is not really necessary for hierarhcy), just a nice touch!
 
-```
+```abap
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Root View for Order Item Entity'
 define root view entity ZDH_R_OrderItemTP
@@ -164,13 +166,13 @@ define root view entity ZDH_R_OrderItemTP
 }
 ```
 
-### ZDH\_C\_OrderItemTP
+### ZDH_C_OrderItemTP
 
 - Create this as a projection view selecting from `ZDH_R_OrderItemTP`
 
 - Most important thing in this is the annotation `**@OData.hierarchy.recursiveHierarchy**` that points to the CDS hierarchy we created above - some parts are obscured for brevity
 
-```
+```abap
 @EndUserText.label: 'Projection View for Order Item entity'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
@@ -182,14 +184,14 @@ define root view entity ZDH_C_OrderItemTP
 {
   key OrderId,
   key ItemNo,
-      
+
       @UI.lineItem: [{ position: 10, label: 'Hier. Item No' }]
       FormattedItemNo,
       ParentItemNo,
       .
       .
-      .     
-      
+      .
+
       /* Associations */
       _Parent: redirected to ZDH_C_OrderItemTP
 }
@@ -203,7 +205,7 @@ At this moment, our resulting data model looks like this
 
 Create a service definition. Add only the transactional processing projection entities to it. No need to expose the CDS Hierarchy as part of the service. It looks like this in our case:
 
-```
+```abap
 @EndUserText.label: 'Service Definition for Order Item'
 define service ZDH_SD_OrderItem_ {
   expose ZDH_C_OrderItemTP as OrderItem;
@@ -226,7 +228,7 @@ Header over to BAS or whichever editor you want to use and generate a Fiori Elem
 
 Some code is removed for brevity:
 
-```
+```json
           "targets": {
                 "OrderItemList": {
                     "type": "Component",
@@ -243,11 +245,11 @@ Some code is removed for brevity:
                                     }
                                 }
                             },
-                            ...                            
+                            ...
                         }
                     }
                 },
-                ...                
+                ...
             }
 ```
 
@@ -259,7 +261,7 @@ We can use a class to fill some test data so that we can verify the hierarchy di
 
 Code snippet is shortened for brevity:
 
-```
+```abap
     SELECT * FROM zdh_t_order_item INTO TABLE @lt_orderitem.
     IF sy-subrc = 0.
       DELETE zdh_t_order_item FROM TABLE @lt_orderitem.
@@ -316,9 +318,10 @@ We can expand the hierarchy items to see their sub items
 - So, to overcome this, we need to add some `WHERE` clause to the source CDS view of the hierarchy - `ZDH_I_OrderItemNode`. This will limit the number of items that are considered for hierarchy construction
 
 - Note that such a `WHERE` caluse
-    - **SHOUDL NOT** break the hierarchy i.e. removing some parent items that may have valid child items - this can create orphan nodes
-    
-    - May end up creating empty parent items where none of the child items match the conditions of the WHERE clause
+
+  - **SHOUDL NOT** break the hierarchy i.e. removing some parent items that may have valid child items - this can create orphan nodes
+
+  - May end up creating empty parent items where none of the child items match the conditions of the WHERE clause
 
 All these should be considered before/during the development of such an application!
 

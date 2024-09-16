@@ -1,8 +1,9 @@
 ---
 title: "Those who come and go, but stay forever"
 date: "2023-01-22"
-categories: 
+categories:
   - "musings"
+excerpt: Some friendships are such that they are often short lived.  Some times, there is no way to go back to those 'Good old days'. But, the memories of those days bring a smile on our faces!
 ---
 
 Did this ever happen to you? That you meet someone when you are on a solo trip or in a conference or something like that. You connect with them immediately. You have a good time sharing food, travel etc. But then they simply disappear from your life just the way they came; Without any drama. Like something that slips away effortlessly. After years, you will still remember the times you spent with them so fondly.

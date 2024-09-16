@@ -1,21 +1,22 @@
 ---
 title: "UI5 WebComponents with React #1 - Class constructor Input cannot be invoked without 'new'"
 date: "2023-04-07"
-categories: 
+categories:
   - "fiori-ui5"
   - "react-js-next-js"
   - "sap"
-tags: 
+tags:
   - "react"
   - "sap"
   - "ui5"
+excerpt: I got this error while experimenting with UI5 Web Components with React.  Took me about a day to figure out what the error meant and where I had messed up.  Hope this helps you if you too are stuck with same issue.
 ---
 
 Out of the blue, I got interest in trying out UI5 Web Components with React today. Then I rememebered that I had completed [this excellent tutorial](https://developers.sap.com/tutorials/ui5-webcomponents-react-introduction.html) during DevtoberFest 2022.
 
 So, I used this template to bootstrap a basic React app with UI5 Web Component.
 
-```
+```kbd
 npx create-react-app my-app --template @ui5/cra-template-webcomponents-react
 cd my-app
 ```
@@ -29,26 +30,28 @@ Then I added Todo component to my main App.js
 At this moment, my Todo component looked something like this:
 
 ```js
-import Input from '@ui5/webcomponents/dist/Input'
-import React, { useState } from 'react'
+import Input from "@ui5/webcomponents/dist/Input";
+import React, { useState } from "react";
 
 const Todo = (props) => {
+  const [inputVal, setInputVal] = useState("");
 
-    const [inputVal, setInputVal] = useState('')
+  const handleInput = (e) => {
+    setInputVal(e.target.value);
+  };
 
-    const handleInput = (e) => {
-        setInputVal(e.target.value);
-    }
+  return (
+    <div slot={props.slot}>
+      <Input
+        placeholder="What do you want to get done?"
+        value={inputVal}
+        onChange={handleInput}
+      />
+    </div>
+  );
+};
 
-
-    return (
-        <div slot={props.slot}>
-            <Input placeholder='What do you want to get done?' value={inputVal} onChange={handleInput}/>
-        </div>
-    )
-}
-
-export default Todo
+export default Todo;
 ```
 
 That's when I started getting the nasty error
@@ -65,7 +68,7 @@ However, if you used the template like I did which uses the package `@ui5/webcom
 
 1. By importing them from `@ui5/webcomponents/dist/` and then using the tags like I mentioned above OR
 
-3. By importing them from `@ui5/webcomponents-react` and then using them like you would use any custom React component e.g. `<Input />`
+2. By importing them from `@ui5/webcomponents-react` and then using them like you would use any custom React component e.g. `<Input />`
 
 In my case, when I used the code completion to import the `Input` component, it was imported from `@ui5/webcomponents/dist/` but I was using the component as though it was imported from `@ui5/webcomponents-react`!
 

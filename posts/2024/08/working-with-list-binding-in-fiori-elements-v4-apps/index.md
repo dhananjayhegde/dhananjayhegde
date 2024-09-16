@@ -1,18 +1,19 @@
 ---
 title: "Working with List Binding in Fiori Elements v4 apps"
-date: "2024-08-08"
-categories: 
+date: 2024-08-08
+categories:
   - "fiori-ui5"
   - "sap"
-tags: 
+tags:
   - "binding"
   - "fev4"
   - "fiorielementsv4"
   - "listbinding"
   - "odata4"
+excerpt: There is no "read" method exposed in OData V4 Model unlike in OData V2 Model in UI5. So, how do we read the data then?
 ---
 
-Recently, I had to work on a requirement to download data from FE v4 list report to a Google Sheet. We had an API that would take the result of a OData GET call and an array of column names and then would save the results into a Google Sheet file. Problem came when we realized that there is no "read" method exposed in [OData V4 model](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v4.ODataModel) object unlike [OData v2 model](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v2.ODataModel) object in UI5. 
+Recently, I had to work on a requirement to download data from FE v4 list report to a Google Sheet. We had an API that would take the result of a OData GET call and an array of column names and then would save the results into a Google Sheet file. Problem came when we realized that there is no "read" method exposed in [OData V4 model](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v4.ODataModel) object unlike [OData v2 model](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v2.ODataModel) object in UI5.
 So, how do we read the data then?
 
 # Problem Statement
@@ -24,9 +25,10 @@ So, how do we do this within the action?
 
 # Solution
 
-Solution is to use the [OData v4 ListBinding](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v4.ODataListBinding). There are two ways we can get a list binding object.  
-\- Since we already have a table displayed with the filters applied, the table's list binding would be the best choice - simply obtain this binding and then try to read all the records from that binding  
-\- Or, create a new List Binding object based on the entity set name using OData V4 model's [bindList()](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v4.ODataModel%23methods/bindList) method and apply the filter criteria on it and then the read the data
+Solution is to use the [OData v4 ListBinding](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v4.ODataListBinding). There are two ways we can get a list binding object.
+
+- Since we already have a table displayed with the filters applied, the table's list binding would be the best choice - simply obtain this binding and then try to read all the records from that binding
+- Or, create a new List Binding object based on the entity set name using OData V4 model's [bindList()](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v4.ODataModel%23methods/bindList) method and apply the filter criteria on it and then the read the data
 
 2nd option is unnecessarily cumbersome. Therefore, we go with the first one. This is how we can do it
 
@@ -53,7 +55,9 @@ Refer to the [Flexible Programming Explorer](https://sapui5.hana.ondemand.com/te
 Within the event handler of custom action, get the table instance using byId()
 
 ```js
-let oTable = this.getView().byId("your.namespace.modulename::EntitySetList--fe::table::EntityType::LineItem")
+let oTable = this.getView().byId(
+  "your.namespace.modulename::EntitySetList--fe::table::EntityType::LineItem"
+);
 ```
 
 Generated ID might be different. But important thing to note here is that
@@ -65,13 +69,13 @@ The one with `<div>` tag would have the same ID but without the suffix `--innerT
 We are interested in this one.
 
 > ### How to find the class name?
-> 
+>
 > Do this to find the class name after getting the instance using byId()
-> 
+>
 > ```js
-> this.getView().byId("someID").getMetadata().getName()
+> this.getView().byId("someID").getMetadata().getName();
 > ```
-> 
+>
 > You can use this to find the class name of any object within a UI5 application. Simply using the `typeof` operator will return `Object` which is not very useful.
 
 ## Step 3 - Working with binding
@@ -79,7 +83,7 @@ We are interested in this one.
 Once we have the correct table object, all we need to do is to get the row binding
 
 ```js
-let oListBinding = oTable.getRowBinding()
+let oListBinding = oTable.getRowBinding();
 ```
 
 ## Step 4 - Request all the data
@@ -90,12 +94,11 @@ We need to first decide how many rows we would want to read in a single request.
 First, calculate number of pages we have
 
 ```js
-const RECORDS_PER_REQUEST = 1000
-const totalCount = oListBinding.getCount()
-const numberOfPages = Math.ceil(totalCount / RECORDS_PER_REQUEST)
-let currentPage = 1
-let from = 0
-
+const RECORDS_PER_REQUEST = 1000;
+const totalCount = oListBinding.getCount();
+const numberOfPages = Math.ceil(totalCount / RECORDS_PER_REQUEST);
+let currentPage = 1;
+let from = 0;
 ```
 
 Now, use requestContexts() method of ListBinding to trigger read requests. requestContext() returns a promise which when resolved returns the result of the GET.
@@ -107,23 +110,22 @@ By default, requestContexts() uses the same group as that of the binding. This w
 You would do something like this - (no explicit group ID passed)
 
 ```js
-let aReadPromise = []
+let aReadPromise = [];
 
 // collect all promises and wait for them to resolve later
-while(currentPage <= numberOfPages) {
-  aReadPromise.push(oListBinding.requestContexts(from, RECORDS_PER_REQUEST))
-  from += RECORDS_PER_REQUEST
-  currentPage++
+while (currentPage <= numberOfPages) {
+  aReadPromise.push(oListBinding.requestContexts(from, RECORDS_PER_REQUEST));
+  from += RECORDS_PER_REQUEST;
+  currentPage++;
 }
 
 Promise.all(aReadPromise).then((aResult) => {
   // aResutl is an array of arrays. Inner arrays contain actual result of each GET request
   let aData = aResult.flat(Infinity).map((oContext) => {
     // do something with the row/context
-    return oContext.getObject()
-  })
-})
-
+    return oContext.getObject();
+  });
+});
 ```
 
 Since all the GET requests are grouped into 1 $batch, this takes more time to resolve.
@@ -133,23 +135,29 @@ Since all the GET requests are grouped into 1 $batch, this takes more time to re
 To send the GET requests parallely i.e. one GET per $batch, pass a unique group id prefixed with "$auto." to requestContexts() method. Documentation here - [requestContexts()](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v4.ODataListBinding%23methods/requestContexts) [Group IDs in OData v4](https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.v4.ODataModel)
 
 ```js
-let aReadPromise = []
+let aReadPromise = [];
 
 // collect all promises and wait for them to resolve later
-while(currentPage <= numberOfPages) {
-  // generate a unique group ID using the currentPage e.g. $auto.page_1, $auto.page_2 ... 
-  aReadPromise.push(oListBinding.requestContexts(from, RECORDS_PER_REQUEST, `$auto.page_${currentPage}`))
-  from += RECORDS_PER_REQUEST
-  currentPage++
+while (currentPage <= numberOfPages) {
+  // generate a unique group ID using the currentPage e.g. $auto.page_1, $auto.page_2 ...
+  aReadPromise.push(
+    oListBinding.requestContexts(
+      from,
+      RECORDS_PER_REQUEST,
+      `$auto.page_${currentPage}`
+    )
+  );
+  from += RECORDS_PER_REQUEST;
+  currentPage++;
 }
 
 Promise.all(aReadPromise).then((aResult) => {
   // aResutl is an array of arrays. Inner arrays contain actual result of each GET request
   let aData = aResult.flat(Infinity).map((oContext) => {
     // do something with the row/context
-    return oContext.getObject()
-  })
-})
+    return oContext.getObject();
+  });
+});
 ```
 
 Now, you will notice that a separate $batch request is triggered with 1 GET request each and are triggered parallelly. So, this completes much quicker than the one with grouping.
@@ -160,41 +168,46 @@ by Default, this will download all the fields of the entity type. If you want to
 Remember, we are working with [sap.ui.mdc.Table](https://sapui5.hana.ondemand.com/#/api/sap.ui.mdc.Table) and not [sap.m.Table](https://sapui5.hana.ondemand.com/#/api/sap.m.Table)
 
 ```js
-let aColumns = oTable.getColumns().map((oColumn) => oColumn.getProperty("dataProperty"))
+let aColumns = oTable
+  .getColumns()
+  .map((oColumn) => oColumn.getProperty("dataProperty"));
 ```
 
 This returns an array of OData property names (not the column labels) that are currently displayed on the table.  
 to get the column labels, you can do
 
 ```js
-let aColumnLabels = oTable.getColumns().map((oColumn) => oColumn.getProperty("header"))
+let aColumnLabels = oTable
+  .getColumns()
+  .map((oColumn) => oColumn.getProperty("header"));
 ```
 
 Once you have the array of columns, you can filter the data from result as below using `Array.prototype.includes()` method
 
 ```js
-let aReadPromise = []
-let aColumns = oTable.getColumns().map((oColumn) => oColumn.getProperty("dataProperty"))
+let aReadPromise = [];
+let aColumns = oTable
+  .getColumns()
+  .map((oColumn) => oColumn.getProperty("dataProperty"));
 
 // collect all promises and wait for them to resolve later
-while(currentPage <= numberOfPages) {
-  aReadPromise.push(oListBinding.requestContexts(from, RECORDS_PER_REQUEST))
-  from += RECORDS_PER_REQUEST
-  currentPage++
+while (currentPage <= numberOfPages) {
+  aReadPromise.push(oListBinding.requestContexts(from, RECORDS_PER_REQUEST));
+  from += RECORDS_PER_REQUEST;
+  currentPage++;
 }
 
 Promise.all(aReadPromise).then((aResult) => {
   // aResutl is an array of arrays. Inner arrays contain actual result of each GET request
   let aData = aResult.flat(Infinity).map((oContext) => {
-    let oData = {}
-    for( const [key, value] of Object.entries(oContext.getObject()) ) {
-      if( aColumns.includes(key) ) {
-        oData[key] = value
+    let oData = {};
+    for (const [key, value] of Object.entries(oContext.getObject())) {
+      if (aColumns.includes(key)) {
+        oData[key] = value;
       }
     }
-  })
-})
-
+  });
+});
 ```
 
 After this, aData would contain an array of objects which will have only those attribute as the columns that are currently displayed on the table

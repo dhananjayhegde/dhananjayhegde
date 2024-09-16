@@ -15,6 +15,7 @@ section: post
   <div class="metadata">
     <div class="tag-list">{% include "components/tag-list-inline.njk" %}</div>
   </div>
+  {% include "components/social-share.njk" %}
 </article>
 {% set previousPost = collections.post | getPreviousCollectionItem %}
 {% set nextPost = collections.post | getNextCollectionItem %}

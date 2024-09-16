@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.categoryList
+  size: 1
+  alias: cat
+permalink: "category/{{ cat.name | slug }}/"
+eleventyComputed:
+  category: "{{ cat.name }}"
+  metaDescription: "An archive of all posts in {{ cat.name }}."
+  title: "{{ cat.postCount }} posts on"
+---
+
+<h1>{{ title }}
+    <span style="text-transform: uppercase">{{ cat.name }}</span>
+</h1>
+{% set postslist = pagination.items[0].posts | reverse %}
+{% include "components/postslist.njk" %}
+{% include "components/social-share.njk" %}
+<nav class="content-footer" aria-label="pagination">
+    <span></span>
+    <a href="{{ '/blog/' | url }}">All Posts</a>
+    <span></span>
+</nav>

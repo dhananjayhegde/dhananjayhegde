@@ -1,8 +1,9 @@
 ---
 title: "Learning a new skill is frustrating..."
 date: "2023-02-26"
-categories: 
+categories:
   - "musings"
+excerpt: We all learn new things on a daily basis.  As kids, we explored new physical and mental skills quicker and more often.  But, as adults, how often do we embark on a completely unknown territory to learn something new?
 ---
 
 But it is highly rewarding!

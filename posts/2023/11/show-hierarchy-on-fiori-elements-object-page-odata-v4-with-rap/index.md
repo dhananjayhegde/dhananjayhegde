@@ -1,19 +1,21 @@
 ---
 title: "Show hierarchy on Fiori Elements Object Page - OData V4 with RAP"
 date: "2023-11-21"
-categories: 
+series: Hierarchy with RAP and OData 4
+categories:
   - "abap"
   - "sap"
-tags: 
+tags:
   - "abap"
   - "hierarchy"
   - "restful-application-programming"
 coverImage: "image-4.png"
+excerpt: How to use hierarchy capabilities offered by OData v4 and RAP to show a hierarchical table on Fiori Elements object page?  Read further to know...
 ---
 
 Previous 2 posts in this series dealt with showing hierarchy on a List Report page of a Fiori Elemetns application using Hierarchy capabilities of OData V4 with CDS Hierarchy. In this post, let's see how to show it on an Object Page.
 
-All these objects are created and tested on BTP Trial account as of today when this post was first published i.e. on November 21, 2023. All ABAP source code used here are available in this [Git Repo](https://github.com/dhananjayhegde/abap-rap-samples-new). Feel free to clone it using [abapGit](https://abapgit.org/) and use it for testing. All the objects created for this specific post are available in package **ZDH\_V4\_HIER\_OP**.
+All these objects are created and tested on BTP Trial account as of today when this post was first published i.e. on November 21, 2023. All ABAP source code used here are available in this [Git Repo](https://github.com/dhananjayhegde/abap-rap-samples-new). Feel free to clone it using [abapGit](https://abapgit.org/) and use it for testing. All the objects created for this specific post are available in package **ZDH_V4_HIER_OP**.
 
 ## Use Case
 
@@ -21,7 +23,7 @@ Suppose we have `Order` which can have one or more `Items`. An item may have a p
 
 ## Data Model
 
-We use a similar data model that we used in previous post. But, since I do not want to disturb the example objects created for that, I will recreate all objects that are required for this post in a different package - **ZDH\_V4\_HIER\_OP**. For the purpose of brevitiy, I will not post source code of those CDS views here. You can find them and also clone them from the repo mentioned above. But, I will highlight important differences from the previous post, nevertheless. That's the whole point of this post.
+We use a similar data model that we used in previous post. But, since I do not want to disturb the example objects created for that, I will recreate all objects that are required for this post in a different package - **ZDH_V4_HIER_OP**. For the purpose of brevitiy, I will not post source code of those CDS views here. You can find them and also clone them from the repo mentioned above. But, I will highlight important differences from the previous post, nevertheless. That's the whole point of this post.
 
 In the end, the data model looks like this:
 
@@ -31,7 +33,7 @@ Notice these changes -
 
 We created a different CDS view for hierarchy node `ZDH_I_OrderItemNode_2` which has 2 associations now - one for hierarchy `directory` filtering `_OrderHeader` (which we will discuss later) and other for the parent-child relationship of item hierarchy `_Parent`. Both these associations are promptly exposed from the CDS view.
 
-```
+```abap
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Hierarchy Node For Order Item'
@@ -60,7 +62,7 @@ define view entity ZDH_I_OrderItemNode_2
 
 CDS hierarchy `ZDH_I_OrderItemHierarchyDir` has a `directory` filter now using the association created above - `_OrderHeader`. Notice that it also has a parameter `p_order_id` which is used as filter criteria. Aall fields that are used for the `on` condition of `_OrderHeader` in the source CDS view should also be used in `filter by` condition of hierarchy directory!
 
-```
+```abap
 @EndUserText.label: 'Order Item Hierarchy'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 define hierarchy ZDH_I_OrderItemHierarchyDir
@@ -90,7 +92,7 @@ Create RAP BDEF for these in case you want to add actions to Order Item entity. 
 
 Link the CDS hierarchy we created earlier to projection CDS view entity `ZDH_C_OrderItemDirTP` using annotation `@OData.hierarchy.recursiveHierarchy`:
 
-```
+```abap
 @EndUserText.label: 'Order Item Projection'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Search.searchable: true
@@ -99,16 +101,16 @@ Link the CDS hierarchy we created earlier to projection CDS view entity `ZDH_C_O
 define view entity ZDH_C_OrderItemDirTP
   as projection on ZDH_R_OrderItemDirTP
 {
-      
+
       @UI.selectionField: [{ position: 10 }]
   key OrderId,
-  
+
   @UI.lineItem: [
         { position: 10, label: 'Item No' },
         { type: #FOR_ACTION, dataAction: 'SetToComplete', position: 10, label: 'Complete', invocationGrouping: #CHANGE_SET }
       ]
   key ItemNo,
-      
+
       ...
 
       /* Associations */
@@ -121,7 +123,7 @@ Add required annotations to show some columns on list report and also to show so
 
 Unlike before, this time we expose both `OrderHeader` and `OrderItem` entities in Service Definition `ZDH_SD_ORDERITEM_HIER_OP` but not the CDS hierarchy iteself. Create a service binding with binding type "OData V4 - UI" and publish it. To my suprise, for some reason, in this case, "preview" from here does not show the item hierarchy out of the box like it did for list report page. So, to test it, we have to generate an app and make some changes to `manifest.json`.
 
-```
+```abap
 @EndUserText.label: 'Service Definition for Order with Hier on OP'
 define service ZDH_SD_ORDERITEM_HIER_OP {
   expose ZDH_C_OrderHeaderDirTP as OrderHeader;
@@ -133,13 +135,13 @@ define service ZDH_SD_ORDERITEM_HIER_OP {
 
 Head over to BAS (Business Application Studio) and generate a Fiori Elements List Report application. Choose `OrderHeader` as main entity and `OrderItem` as navigation entity. Once generated, find the file `manifest.json`. If you followd the same naming convetion for entities that are exposed, then you will find an object named `OrderHeaderObjectPage` in this file under `sp.ui5 -> routing -> targets`. Add `controlConfiguration` to the `settings` object of this. It should look like this:
 
-```
+```json
        "OrderHeaderObjectPage": {
           "type": "Component",
           "id": "OrderHeaderObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
-            "settings": {                                                    
+            "settings": {
               "controlConfiguration": {
                 "_Item/@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {

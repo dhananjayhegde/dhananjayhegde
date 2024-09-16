@@ -1,12 +1,13 @@
 ---
 title: "Fixing your sleep - notes from Huberman podcast #1"
 date: "2022-10-25"
-categories: 
+categories:
   - "musings"
-tags: 
+tags:
   - "health"
   - "sleep"
   - "well-being"
+excerpt: I have been listening to this podcast of Andrew Huberman on Huberman Labs about how to fix your sleep, develope a heatlhy sleep habits.  Also, I happened to read this interesting book "Why we sleep". My learnings from those.
 ---
 
 One of the most consistent things my parents have is their routine. What they do everyday, at what time they do those; Eating, taking a walk, watching TV, or sleeping. For as long as I have known them, they go to bed at same time almost every day and irrespective when they go to bed, they are up by 5:45 am in the morning. Breakfast at 9am, lunch at 1pm as the hour strikes and supper at 8:45pm.
@@ -35,8 +36,9 @@ Next question is what do to during these three parts of the day
 
 - Go out and get good bright sunlight (not through the window, not wearing sunglasses)
 - Focus on increasing the core body temperature
-    - Taking a cold water shower
-    - Some exercise - joging, skipping etc.
+
+  - Taking a cold water shower
+  - Some exercise - joging, skipping etc.
 
 - If you are into drinking coffee, better to drink it during this period. Especially before 3 - 4pm in the afternoon
 - Eat a light a breakfast. Eating too much cuases one to become lazy as body has to specnd more energy to digest the food

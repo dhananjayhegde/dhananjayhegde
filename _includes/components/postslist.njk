@@ -11,7 +11,7 @@
                 </a>
             </h3>
             <div class="metadata">
-                <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
+                <time datetime="{{ post.date | machineDate }}">{{ post.date | readableDate }}</time>
                 {% set tags = post.data.tags %}
                 <div class="tag-list">{% include "components/tag-list-inline.njk" %}</div>
             </div>
@@ -21,5 +21,6 @@
                 </p>
             {% endif %}
         </article>
-    {% endfor %}
-</section>
+        <hr>
+        {% endfor %}
+    </section>

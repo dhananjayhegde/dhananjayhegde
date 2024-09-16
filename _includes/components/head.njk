@@ -4,9 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>{{ title or metadata.title }}</title>
   <meta name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}"/> {% set css %}
-  {% include "assets/css/inline.css" %}
-  {% endset %}
-  <!-- Fonts -->
+  {% include "assets/css/inline.css" %}{% endset %}
+  <!-- Font Awesome Free -->
+  <link
+  rel="stylesheet" href="/_includes/assets/fontawesome/css/all.min.css"/> <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link
@@ -18,7 +19,7 @@
   <style>{{css | cssmin | safe}}</style>
   {# Uncomment below if you want to include minified inline JavaScript #}
   {# {% set js %}
-                                                                                      {% include "assets/js/inline.js" %}
-                                                                                    {% endset %}
-                                                                                    <script>{{ js | jsmin | safe }}</script> #}
+                                                                                                                {% include "assets/js/inline.js" %}
+                                                                                                              {% endset %}
+                                                                                                              <script>{{ js | jsmin | safe }}</script> #}
 </head>

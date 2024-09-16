@@ -1,6 +1,6 @@
 ---
 title: "On Running and other things..."
-date: "2024-09-07"
+date: 2024-09-07
 categories:
   - "musings"
 tags:

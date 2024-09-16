@@ -1,8 +1,9 @@
 ---
 title: "5 things for a healthy lifestyle that cost almost nothing"
 date: "2023-01-21"
-categories: 
+categories:
   - "musings"
+excerpt: Bringing back some healthy lifestyle is not as difficult as we think.  Some times, small changes in our routines have big long term impact on our overall health and sense of wellbeing
 ---
 
 These are 5 things you can do to improve your lifestyle/work that come at almost zero cost (compared to the benefits they bring)

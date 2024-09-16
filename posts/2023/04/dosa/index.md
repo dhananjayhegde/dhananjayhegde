@@ -1,14 +1,15 @@
 ---
 title: "Dosa"
 date: "2023-04-10"
-categories: 
+categories:
   - "stories"
-tags: 
+tags:
   - "bengaluru"
   - "breakfast"
   - "dosa"
   - "foodie"
   - "village"
+excerpt: Dosa is not just a breakfast dish. It is an emotion for many.  But there is a community that eats dosa on a daily basis, that too which is as thin as the paper itself!
 ---
 
 Dosa dosa dosa. . ![😋](images/1f60b.png)
@@ -36,8 +37,6 @@ A banana leaf to spread, and a quick hand to take it out. . Yummy crispy paper d
 Dosa
 
 </figcaption>
-
-
 
 </figure>
 
