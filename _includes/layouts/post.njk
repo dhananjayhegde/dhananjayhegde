@@ -20,11 +20,11 @@ section: post
 {% set previousPost = collections.post | getPreviousCollectionItem %}
 {% set nextPost = collections.post | getNextCollectionItem %}
 <nav class="content-footer" aria-label="pagination">
-  {% if previousPost %}
-    <a href="{{ previousPost.url }}">&larr; Previous</a>
+  {% if nextPost %}
+    <a href="{{ nextPost.url }}">&larr; Next</a>
   {% endif %}
   <a href="{{ '/blog/' | url }}">All Posts</a>
-  {% if nextPost %}
-    <a href="{{ nextPost.url }}">Next &rarr;</a>
+  {% if previousPost %}
+    <a href="{{ previousPost.url }}">Previous &rarr;</a>
   {% endif %}
 </nav>

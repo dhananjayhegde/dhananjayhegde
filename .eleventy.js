@@ -139,7 +139,6 @@ module.exports = function (eleventyConfig) {
       });
     });
 
-    console.table(tagList);
     return tagList.sort((a, b) => b.year - a.year);
   });
 
