@@ -33,7 +33,7 @@ Did I tell you the village was very small? It was so small that 4 of the 5 house
 
 I know you are struggling. Before you tell me that my writing is bad or I tell you that your imagination is bad, it’s better I show you a picture. So, here is a map I drew. Take a good look. That box in red color is the cowshed; the central piece of this story.
 
-![](images/village_map_1.png)
+![village_map_1.png](/static/img/2022/12/village_map_1.png)
 
 Village Map - Not to mesure. H = House, CS = Cowshed
 
@@ -41,7 +41,7 @@ Now that we have established the environment in which this story was taking plac
 
 It was a Sunday. Like any other Sunday, we were watching a TV serial “Sri Krishna” on Door Darshan. It was around 9 or 10 in the morning. Usually, all the kids in the village watched the serial at same house. I think it was more because we were scared of Kansa’s devilish laugh which he used as a punctuation mark. Don’t believe me? Watch some episodes on YouTube and come back. Don’t blame me if they look funny now. They were not when we were kids. I don’t know what happened in the meantime.
 
-We are going off the track once again 🤔
+We are going off the track once again🤔
 
 So, we were watching the serial when we suddenly heard a loud noise. For a few seconds we thought _Kansa_ changed his laugh and was going to be more violent now. Only when the noise became louder and elders started running out, we realised it was not Kansa.
 

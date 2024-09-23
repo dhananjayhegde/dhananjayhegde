@@ -27,7 +27,7 @@ We use a similar data model that we used in previous post. But, since I do not w
 
 In the end, the data model looks like this:
 
-![Data model - CDS views](images/Item-hierarchy_op-1024x638.png)
+![Item-hierarchy_op-1024x638.png](/static/img/2023/11/Item-hierarchy_op-1024x638.png)
 
 Notice these changes -
 
@@ -171,11 +171,11 @@ I generated some orders with items/item hierarchies using this class (which was 
 
 With this, if you run the Fiori app now, you should see the hierarchy as shown below on the obejct page of an order:
 
-![](images/image-3-1024x527.png)
+![image-3-1024x527.png](/static/img/2023/11/image-3-1024x527.png)
 
 Expanded items would look like this:
 
-![](images/image-4-1024x567.png)
+![image-4-1024x567.png](/static/img/2023/11/image-4-1024x567.png)
 
 Having worked with hierarchies on both OData V2 and OData V4, I can vouch that this is a great feat in terms of reducing development time required to develop such applications when it comes to OData V4. Also, there is a great deal of boiler plate code that was required in case of OData V2 developments - one had to create a CDS view with custom query implementation and write a lot of ABAP code in it to make things work. In OData V4, CDS Hierarchy is used internally without the need of any additional ABAP coding so that we can focus on `real business logic`, as they always say!
 
