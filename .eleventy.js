@@ -183,8 +183,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  eleventyConfig.addPassthroughCopy("./images/*.jpg");
-  eleventyConfig.addPassthroughCopy("./images/*.png");
+  // eleventyConfig.addPassthroughCopy("*/images/*.jpg");
+  // eleventyConfig.addPassthroughCopy("*/images/*.png");
 
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");

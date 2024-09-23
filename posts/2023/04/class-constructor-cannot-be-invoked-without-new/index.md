@@ -58,7 +58,7 @@ That's when I started getting the nasty error
 
 "**Class constructor Input cannot be invoked without 'new' TypeError: Class constructor Input cannot be invoked without 'new'**"
 
-![](images/image-2.png)
+![image-2.png](/static/img/2023/04/image-2.png)
 
 ## Root Cause
 
@@ -76,7 +76,7 @@ This was causing the problem. Unfortunately, no one ever seem to have faced this
 
 So, when you import UI5 WebComponents, be aware of the mischiefs code completion plays on you -
 
-![](images/image-1.png)
+![image-1.png](/static/img/2023/04/image-1.png)
 
 In caseyou are ever stuck with this error, hope you find this page and it will save you your precious time.
 

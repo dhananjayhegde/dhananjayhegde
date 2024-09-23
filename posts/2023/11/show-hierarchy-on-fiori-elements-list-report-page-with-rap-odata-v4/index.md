@@ -199,7 +199,7 @@ define root view entity ZDH_C_OrderItemTP
 
 At this moment, our resulting data model looks like this
 
-![](images/read_only_hierarchy_data_model-1024x826.png)
+![read_only_hierarchy_data_model-1024x826.png](/static/img/2023/11/read_only_hierarchy_data_model-1024x826.png)
 
 ## Service Exposure
 
@@ -299,11 +299,11 @@ Code snippet is shortened for brevity:
 
 With this, if we run the fiori application, we see something like this:
 
-![List report with hierarchy items](images/image-1024x580.png)
+![image-1024x580.png](/static/img/2023/11/image-1024x580.png)
 
 We can expand the hierarchy items to see their sub items
 
-![Hierarchy item 20 expanded](images/image-1-1024x613.png)
+![image-1-1024x613.png](/static/img/2023/11/image-1-1024x613.png)
 
 ## Performance Considerations
 

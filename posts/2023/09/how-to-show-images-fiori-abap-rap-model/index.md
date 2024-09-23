@@ -144,11 +144,11 @@ I imagine you already know how to add the required annotations to get a List Rep
 
 When we preview this app now, this how we see this in Edit mode. We can upload an image file. But you will notice that it does not show the image yet. Instead you will only see the file name!
 
-![](images/image-2.png)
+![image-2.png](/static/img/2023/09/image-2.png)
 
 After uploading the image, this is how we see it
 
-![](images/image-3.png)
+![image-3.png](/static/img/2023/09/image-3.png)
 
 ## What went wrong?
 
@@ -156,7 +156,7 @@ Nothing! But, an LOB could be just about any binary content. Fiori Elements does
 
 Looking into [UI5 inspector](https://chrome.google.com/webstore/detail/ui5-inspector/bebecogbafbighhaildooiibipcnbngo), we see that there is only a generic FileWRapper building block used to show this.
 
-![](images/image-4.png)
+![image-4.png](/static/img/2023/09/image-4.png)
 
 In your consumption view, add annotation `@Semantics.imageUrl: true` to `attachment` field. Note, you cannot add this annotatin in the Meta Data Extension (MDE) file.
 
@@ -188,11 +188,11 @@ define view entity ZDH_C_OrderItem_M
 
 After this, if you refresh the app, you will see the imgae. This annotation tells Fiori Elements that the file indeed is an image so that it knows how to render it!
 
-![](images/image-5.png)
+![image-5.png](/static/img/2023/09/image-5.png)
 
 If you inspect it now using UI5 inspector, you will see that the file is wrapped within in a `sap.m.Avatar` control whose `src` property is bound to `Attachment` field
 
-![](images/image-6-1024x265.png)
+![image-6-1024x265.png](/static/img/2023/09/image-6-1024x265.png)
 
 ## How to show the image on the Item Object Page header?
 
@@ -225,7 +225,7 @@ annotate view ZDH_C_OrderItem_M with
 
 If you navigate to item's object page now, you will see the image like this
 
-![](images/image-7.png)
+![image-7.png](/static/img/2023/09/image-7.png)
 
 Complete source code of this is available in this [GitHub repo](https://github.com/dhananjayhegde/abap-rap-samples-new/tree/main/src/zdh_rap_aunits). Refer to directory `ZDH_RAP_AUNITS` (package). You can import this codebase into your ADT using `abapGit`. [How to connect your ABAP environment on BTP to abapGit](https://developers.sap.com/tutorials/abap-environment-abapgit-transfer.html) is explained here.
 

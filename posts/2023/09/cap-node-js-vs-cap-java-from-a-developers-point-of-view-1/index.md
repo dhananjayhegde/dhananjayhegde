@@ -45,7 +45,7 @@ I will try to understand what this does and may be, write about it in one of the
 
 For all the code samples and images below, dark theme is used for CAP Java and light theme is used for CAP Node.js
 
-![](images/pear-1-1024x1024.png)
+![pear-1-1024x1024.png](/static/img/2023/09/pear-1-1024x1024.png)
 
 Wondering why there is an avacado, by the way? Becasue I am lazy to change it!
 
@@ -57,7 +57,7 @@ Anyway, generated project structure is different in both cases, though, on the s
 
 CAP Node.js project has an `app` directory which is missing in case of CAP Java project
 
-![](images/image.png)
+![image.png](/static/img/2023/09/image.png)
 
 ## Add Data Model and Service Exposure
 
@@ -133,7 +133,7 @@ Once you add more entities and expose them via services, you will see that CAP J
 
 After adding above entities and service, this is how the srv directory looks like
 
-![](images/image-1.png)
+![image-1.png](/static/img/2023/09/image-1.png)
 
 I could not help but feel that CAP Node.js is like that guy who does everything but never talks about it where as CAP Java creates a lof of noise doing so little.
 

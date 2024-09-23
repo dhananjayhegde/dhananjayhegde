@@ -119,7 +119,7 @@ c:/Users/<userid>/.ssh/
 
 - Go to BlueHost => Advanced => SSH and then use "Import" option to import this key \[do not enter passphrase here too\]
 
-![](images/bluehost_import_ssh_key.png)
+![bluehost_import_ssh_key.png](/static/img/2022/12/bluehost_import_ssh_key.png)
 
 - Authorize the key you just created
 

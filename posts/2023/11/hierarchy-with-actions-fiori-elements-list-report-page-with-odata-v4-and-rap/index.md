@@ -50,7 +50,7 @@ etag master LastChangedAt
 
 If we now try to open our Service Biniding, we see an error - "**Error in entity 'ZDH_C_ORDERITEMTP(CDS)': Source view ZDH_C_ORDERITEMTP cannot be transactional**".
 
-![](images/service_binding_error.png)
+![service_binding_error.png](/static/img/2023/11/service_binding_error.png)
 
 It means exactly what you think it means i.e. becasue there is a Behavior Definition which adds transactional behavior to which was hitherto a read-only application, we get this error. But, hey! wait. We thought it is supported now, didn't we?
 
@@ -62,7 +62,7 @@ To be able to add actions and hence transactional behavior to a hierarchy based 
 
 To not to disturb the existing read-only application for someone who is referring to it from future, I will create a new package and create new set of CDS views and entities in it for the purpose of this post. In the end, data model would look like this. We are reusing some CDS views created from the previous post.
 
-![](images/Item-hierarchy_with_different_root-1024x645.png)
+![Item-hierarchy_with_different_root-1024x645.png](/static/img/2023/11/Item-hierarchy_with_different_root-1024x645.png)
 
 To keep the post succinct, I will not post the code snippets of all these CDS entities here again. Important points to note/differences from those created in previous post are:
 
@@ -159,7 +159,7 @@ define service ZDH_SD_ORDERITEM_HIER_ACT {
 
 Create a service binding for this with Biding type "OData V4 - UI" and publish it. I have named it "ZDH_SB_UI_V4_ORDERITM_HIER_ACT". With this, if we now preview the app from Service Binding, we should be able to see the hierarchy on list report page along with the action.
 
-![](images/hierarchy_with_action-1024x412.png)
+![hierarchy_with_action-1024x412.png](/static/img/2023/11/hierarchy_with_action-1024x412.png)
 
 ## Fiori Elements Application
 

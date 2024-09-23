@@ -15,7 +15,7 @@ excerpt: How to show text for a code on Fiori Elements applications using annota
 
 If you want to achieve something like below, here is how you can do it with CAP annotations:
 
-![](images/image.png)
+![image.png](/static/img/2023/07/image.png)
 
 Here, we hvae the code/value "2" and the text displayed before that. This text could also be localized.
 

@@ -292,7 +292,7 @@ You will be greeted with a beautiful masonry layout!
 
 <figure>
 
-![masonry-layout](images/masonry.png)
+![masonry.png](/static/img/2023/01/masonry.png)
 
 <figcaption>
 
@@ -300,7 +300,7 @@ masonry layout with top-right image hovered
 
 </figcaption>
 
-![masonry-layout-hovered](images/masonry-large.png)
+![masonry-large.png](/static/img/2023/01/masonry-large.png)
 
 </figure>
 

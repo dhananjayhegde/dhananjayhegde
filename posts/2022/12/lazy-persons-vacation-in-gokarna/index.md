@@ -67,7 +67,7 @@ Whenever we passed through Devimane Ghat by a KSRTC bus, they would stop the bus
 
 <figure>
 
-![](images/image.png)
+![image.png](/static/img/2022/12/image.png)
 
 <figcaption>
 
