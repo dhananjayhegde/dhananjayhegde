@@ -48,7 +48,7 @@ def make_front_matter(file_content="", title="", file_date=None):
     category_string = reduce(lambda x,y: x + "\n  - " + y, fm_dict.get('categories', "").split(","))
     tag_string = reduce(lambda x,y: x + "\n  - " + y, fm_dict.get('hashtags', "").split(","))
     
-    eleventy_front_matter = f"""--- \ntitle: {title} \ndate: {file_date.strftime("%Y-%m-%d")} \ncategories:\n  - {category_string}\ntags:\n  - {tag_string}\nexcerpt: {fm_dict['excerpt']} \n---\n"""
+    eleventy_front_matter = f"""--- \ntitle: {title} \ndate: {file_date.strftime("%Y-%m-%d")} \ncategories:\n  - {category_string}\ntags:\n  - {tag_string}\nexcerpt: {fm_dict['excerpt']} \n------\n"""
     return { 'eleventy': eleventy_front_matter, }
 
 def add_front_matter_to_content(file_content="", eleventy_front_matter=""):

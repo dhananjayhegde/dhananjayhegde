@@ -15,9 +15,10 @@
                 {% set tags = post.data.tags %}
                 <div class="tag-list">{% include "components/tag-list-inline.njk" %}</div>
             </div>
-            {% if post.data.excerpt %}
+            {% if post.data.excerpt or post.data.page.excerpt %}
                 <p>
-                    {{ post.data.excerpt }}
+                    <!-- {{ post.data.excerpt }} -->
+                    {% excerpt post %}
                 </p>
             {% endif %}
         </article>
