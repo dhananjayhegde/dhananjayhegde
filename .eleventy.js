@@ -5,7 +5,21 @@ const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+const markdownIt = require("markdown-it");
+
+const getExcerpt = (post) => {
+  const md = new markdownIt({ html: true });
+  if (post.data.excerpt) {
+    return md.render(post.data.excerpt);
+  } else if (post.data.page.excerpt) {
+    return md.render(post.data.page.excerpt);
+  }
+  return null;
+};
+
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addShortcode("excerpt", (post) => getExcerpt(post));
+
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
