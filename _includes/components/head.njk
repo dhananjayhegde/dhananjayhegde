@@ -3,7 +3,21 @@
   <meta name="generator" content="{{ eleventy.generator }}"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>{{ title or metadata.title }}</title>
-  <meta name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}"/> {% set css %}
+  <meta name="title" content="{{ metaTitle or title or metadata.title }}"/>
+  <meta
+  name="description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}"/> <!-- OpenGraph and Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="{{ metadata.url + page.url }}"/>
+  <meta property="og:title" content="{{ metaTitle or title or metadata.title }}"/>
+  <meta property="og:description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}"/>
+  <meta property="og:image" content="{{ metadata.url + image }}"/> <!-- End of OpenGraph and Facebook -->
+  <!-- Twitter --> <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:url" content="{{ metadata.url + page.url }}"/>
+  <meta property="twitter:title" content="{{ metaTitle or title or metadata.title }}"/>
+  <meta property="twitter:description" content="{{ metaDescription or eleventyComputed.metaDescription or metadata.description }}"/>
+  <meta
+  property="twitter:image" content="{{ metadata.url + image }}"/> <!-- End of Twitter -->
+  {% set css %}
   {% include "assets/css/inline.css" %}{% endset %}
   <!-- Font Awesome Free -->
   <link
@@ -19,7 +33,7 @@
   <style>{{css | cssmin | safe}}</style>
   {# Uncomment below if you want to include minified inline JavaScript #}
   {# {% set js %}
-                                                                                                                {% include "assets/js/inline.js" %}
-                                                                                                              {% endset %}
-                                                                                                              <script>{{ js | jsmin | safe }}</script> #}
-</head>
+                                                                                                                                                {% include "assets/js/inline.js" %}
+                                                                                                                                              {% endset %}
+                                                                                                                                              <script>{{ js | jsmin | safe }}</script> #}
+</head></head>
