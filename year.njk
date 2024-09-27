@@ -8,17 +8,17 @@ permalink: "year/{{ year.year | slug }}/"
 eleventyComputed:
   category: "{{ year.year }}"
   metaDescription: "An archive of all posts in {{ year.year }}."
-  title: "{{ year.postCount }} posts in"
+  title: "{{ year.postCount }} posts in {{ year.year }}"
 ---
 
 <h1>{{ title }}
-    <span style="text-transform: uppercase">{{ year.year }}</span>
+  <span style="text-transform: uppercase">{{ year.year }}</span>
 </h1>
 {% set postslist = pagination.items[0].posts | reverse %}
 {% include "components/postslist.njk" %}
 {% include "components/social-share.njk" %}
 <nav class="content-footer" aria-label="pagination">
-    <span></span>
-    <a href="{{ '/blog/' | url }}">All Posts</a>
-    <span></span>
+  <span></span>
+  <a href="{{ '/blog/' | url }}">All Posts</a>
+  <span></span>
 </nav>
