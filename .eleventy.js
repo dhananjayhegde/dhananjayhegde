@@ -18,6 +18,10 @@ const getExcerpt = (post) => {
 };
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addShortcode("currentyear", function () {
+    return new Date().getFullYear();
+  });
+
   eleventyConfig.addShortcode("excerpt", (post) => getExcerpt(post));
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
