@@ -12,6 +12,12 @@ A collection of inspirational quotes, messages, one liners and thoughts:
 
 ---
 
+## 5
+
+If you are always the consumer, you will not have any time nor content to produce anything!
+
+---
+
 ## 4
 
 Sometimes you want to reduce the time it takes to do something. So, you start automating it which ends up taking more time than it would have taken otherwise to completet the original task manually!
