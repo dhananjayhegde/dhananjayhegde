@@ -2,7 +2,7 @@
 <html {% if section %} data-current="{{ section }}" {% endif %} lang="en">
     {% include "components/head.njk" %}
     <body>
-        <div class="site">
+        <div class="site {{ title | slug }}">
             <header class="site-header">
                 <div class="site-title">
                     <a href="{{ '/' | url }}">{{ metadata.title }}</a>

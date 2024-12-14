@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-title: Inspiration/Quotes
+title: Inspiration
 date: 2024-09-29
 permalink: /inspiration/index.html
 eleventyComputed:
@@ -14,30 +14,30 @@ A collection of inspirational quotes, messages, one liners and thoughts:
 
 ## 5
 
-If you are always the consumer, you will not have any time nor content to produce anything!
+> If you are always the consumer, you will not have any time nor content to produce anything!
 
 ---
 
 ## 4
 
-Sometimes you want to reduce the time it takes to do something. So, you start automating it which ends up taking more time than it would have taken otherwise to completet the original task manually!
+> Sometimes you want to reduce the time it takes to do something. So, you start automating it which ends up taking more time than it would have taken otherwise to completet the original task manually!
 
 ---
 
 ## 3
 
-There is a last time for everything you do. But you never know when that is. You will be meeting someone for the last time, going to a place for the last time and will never go back, will be eating some ice cream for the last time etc.
-
-_Heard on the Waking Up app_
+> There is a last time for everything you do. But you never know when that is. You will be meeting someone for the last time, going to a place for the last time and will never go back, will be eating some ice cream for the last time etc.
+>
+> -- Heard on the Waking Up app
 
 ---
 
 ## 2
 
-There are two ways you can respond to something you don't like - if you can change it, change it. If you can't, accept it. There is no point worrying about it!
+> There are two ways you can respond to something you don't like - if you can change it, change it. If you can't, accept it. There is no point worrying about it!
 
 ---
 
 ## 1
 
-Most of the time is spent either by being anxious about the future or by being sad about the past. Give your mind a break, be in the present!
+> Most of the time is spent either by being anxious about the future or by being sad about the past. Give your mind a break, be in the present!
