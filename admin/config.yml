@@ -17,8 +17,11 @@ collections:
   # Our blog posts
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Post" # Used in the UI
-    folder: "posts/{{year}}/{{month}}" # The path to the folder where the documents are stored
+    folder: "posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
+    nested:
+      depth: 4
+      summary: "{{title}}"
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - { label: "Title", name: "title", widget: "string" }
@@ -27,7 +30,7 @@ collections:
           label: "Author",
           name: "author",
           widget: "string",
-          default: "Anonymous",
+          default: "Dhananjay",
         }
       - { label: "Summary", name: "excerpt", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list" }
@@ -37,7 +40,7 @@ collections:
           widget: "list",
           default: ["musings"],
         }
-      - { label: "Series", name: "series", widget: "string" }
+      - { label: "Series", name: "series", widget: "string", required: false }
       - { label: "Cover Image", name: "coverImage", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
   # Our pages e.g. About
