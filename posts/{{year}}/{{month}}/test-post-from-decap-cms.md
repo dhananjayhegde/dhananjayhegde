@@ -7,7 +7,7 @@ tags:
   - decapcms
 categories:
   - 11ty
-series: Everything Else
+series: ""
 coverImage: /static/img/sample-decap-upload-image-1.jpg
 ---
 This is a test post from Decap CMS with an image uploaded from Decap CMS admin page
