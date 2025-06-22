@@ -6,10 +6,10 @@ backend:
   branch: master # The branch to update (optional; defaults to master)
 
 # Uncomment below to enable drafts https://www.decapcms.org/docs/add-to-your-site/#editorial-workflow
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 # Uncomment below to enable a link to your published site in the header bar of Decap CMS
-# site_url: https://eleventy-netlify-boilerplate.netlify.app/
+site_url: https://dhananjayhegde.in/
 
 media_folder: "static/img" # Media files will be stored in the repo under images/uploads
 
@@ -17,15 +17,28 @@ collections:
   # Our blog posts
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Post" # Used in the UI
-    folder: "posts" # The path to the folder where the documents are stored
+    folder: "posts/{{year}}/{{month}}" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string", default: "Anonymous" }
-      - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "string",
+          default: "Anonymous",
+        }
+      - { label: "Summary", name: "excerpt", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          default: ["musings"],
+        }
+      - { label: "Series", name: "series", widget: "string" }
+      - { label: "Cover Image", name: "coverImage", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
   # Our pages e.g. About
   - name: "pages"
