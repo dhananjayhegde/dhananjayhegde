@@ -41,7 +41,12 @@ collections:
           default: ["musings"],
         }
       - { label: "Series", name: "series", widget: "string", required: false }
-      - { label: "Cover Image", name: "coverImage", widget: "image" }
+      - {
+          label: "Cover Image",
+          name: "coverImage",
+          widget: "image",
+          required: false,
+        }
       - { label: "Body", name: "body", widget: "markdown" }
   # Our pages e.g. About
   - name: "pages"
