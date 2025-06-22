@@ -4,7 +4,10 @@ date: 2025-06-22T00:00:00.000Z
 author: Dhananjay
 excerpt: "Sample post from Decap CMS 2 "
 tags:
-  - decapcms;11ty;netlify;cms
+  - decapcms
+  - 11ty
+  - netlify
+  - cms
 categories:
   - musings
 coverImage: /static/img/sample-decap-upload-image-1.jpg
