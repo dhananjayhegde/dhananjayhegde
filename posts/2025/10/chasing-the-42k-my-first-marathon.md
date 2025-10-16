@@ -12,7 +12,7 @@ excerpt: They say “in a marathon, the first 32 km is just a warm up. The real 
 
 ![42k-medal-first-marathon.jpg](/static/img/2025/10/42k-medal-first-marathon.jpg)
 
-They say “in a marathon, the first 32 km is a warm up.  The real marathon is the last 10km”.
+> They say “in a marathon, the first 32 km is a warm up.  The real marathon is the last 10km”.
 
 I stopped, walked and then began running for the 33rd kilometer.  By the 30th kilometer, I had already crossed the Gachibowli stadium, thanking the gods for the downhill into the Hyderabad Central University campus.  Then came an elevation and that was when it hit me.  I couldn’t run anymore.  But I didn’t want to stop either.  I didn't want to give up.  No, that was not going to be my proverbial “wall”.  Not during my debut.  Not after having trained for 5 months.
 
