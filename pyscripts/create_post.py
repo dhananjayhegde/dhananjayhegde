@@ -73,7 +73,7 @@ def create_post(title: str, today: date | None = None) -> Path:
     month = post_date.strftime("%m")
 
     post_directory = PROJECT_ROOT / "posts" / year / month
-    static_directory = PROJECT_ROOT / "static" / year / month
+    static_directory = PROJECT_ROOT / "static" / "img" / year / month
     post_directory.mkdir(parents=True, exist_ok=True)
     static_directory.mkdir(parents=True, exist_ok=True)
 
