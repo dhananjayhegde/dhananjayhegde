@@ -209,6 +209,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin/");
   // We additionally output a copy of our CSS for use in Decap CMS previews
   eleventyConfig.addPassthroughCopy("_includes/assets/css/inline.css");
+  eleventyConfig.addPassthroughCopy("_includes/assets/css/global.css");
 
   eleventyConfig.addPassthroughCopy(
     "_includes/assets/fontawesome/webfonts/fa-brands-400.woff2"
