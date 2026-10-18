@@ -1,0 +1,469 @@
+/* Layout, component, and compositional utility layers. */
+@layer layout {
+  body>.site {
+    inline-size: min(calc(100% - (2 * var(--space-3))), var(--measure-wide));
+    min-block-size: 100vh;
+    margin-inline: auto;
+  }
+
+  .site>header,
+  .site>footer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+  }
+
+  .site>header {
+    justify-content: space-between;
+    border-block-end: var(--border-thin);
+  }
+
+  .site>main {
+    display: grid;
+    grid-template-columns: minmax(0, var(--measure-copy)) minmax(12rem, var(--sidebar-width));
+    gap: var(--layout-gap);
+    justify-content: space-between;
+    min-block-size: 75vh;
+    padding-block: clamp(var(--space-6), 7vw, var(--space-12));
+  }
+
+  .site>main> :where(section, .main-content) {
+    min-inline-size: 0;
+  }
+
+  .site>main> :where(aside, .main-sidebar) {
+    min-inline-size: 0;
+    border-inline-start: var(--border-thin);
+    padding-inline-start: var(--space-4);
+  }
+
+  .site>footer {
+    justify-content: center;
+    border-block-start: var(--border-thin);
+    text-align: center;
+  }
+
+  @media (max-width: 52rem) {
+    .site>main {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .site>main> :where(aside, .main-sidebar) {
+      border-block-start: var(--border-thin);
+      border-inline-start: 0;
+      padding-block-start: var(--space-6);
+      padding-inline-start: 0;
+    }
+  }
+
+  @media (max-width: 36rem) {
+    body>.site {
+      inline-size: min(calc(100% - (2 * var(--space-2))), var(--measure-wide));
+    }
+
+    .site>header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}
+
+@layer components {
+  :where(main, article, section)>*+* {
+    margin-block-start: var(--space-3);
+  }
+
+  :where(main, article, section)> :where(h2, h3, h4) {
+    margin-block-start: var(--space-6);
+  }
+
+  .main-content>h1:first-child {
+    max-inline-size: 24ch;
+    font-size: var(--font-size-4xl);
+    letter-spacing: -0.045em;
+  }
+
+  :where(.main-content, article) p {
+    color: var(--color-ink-muted);
+  }
+
+  :where(.main-content, article) :where(strong, b) {
+    color: var(--color-ink);
+  }
+
+  :where(main, article) :where(ul, ol) {
+    margin-block: var(--space-3);
+    padding-inline-start: var(--space-4);
+  }
+
+  :where(main, article) li+li {
+    margin-block-start: var(--space-1);
+  }
+
+  .site-title a {
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  header>nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  header>nav a {
+    display: inline-block;
+    padding-block: var(--space-1);
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  header>nav a:is(:hover, [data-current]) {
+    color: var(--color-accent);
+  }
+
+  header>nav a[data-current] {
+    box-shadow: inset 0 -1px var(--color-accent);
+  }
+
+  article>.hero {
+    margin-block-end: var(--space-8);
+    border-block-end: var(--border-thin);
+    padding-block-end: var(--space-8);
+  }
+
+  article>.hero .title {
+    max-inline-size: 24ch;
+    font-size: var(--font-size-4xl);
+    letter-spacing: -0.045em;
+  }
+
+  .metadata {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-1) var(--space-2);
+    color: var(--color-ink-muted);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+  }
+
+  .metadata :where(a, time) {
+    font-size: inherit;
+  }
+
+  .metadata .tag-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+
+  .tag-list-item {
+    border-block-end: 1px solid var(--color-line-strong);
+    padding: 0;
+    text-decoration: none;
+  }
+
+  .post-list {
+    padding-block: var(--space-4);
+  }
+
+  .post-list>h3 {
+    margin-block-start: 0;
+  }
+
+  .post-list>h3 a {
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: -0.025em;
+  }
+
+  .post-list>h3 a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  hr {
+    inline-size: 100%;
+    margin-block: var(--space-4);
+    border: 0;
+    border-block-start: var(--border-thin);
+  }
+
+  blockquote {
+    border-inline-start: 0.3rem solid var(--color-accent);
+    padding: var(--space-2) var(--space-4);
+    color: var(--color-ink-muted);
+    font-size: var(--font-size-base);
+    font-weight: var(--weight-medium);
+    font-family: var(--font-mono);
+  }
+
+  :where(p, li)>code,
+  div>code {
+    border-radius: var(--radius-sm);
+    padding: 0.125em 0.35em;
+    color: var(--color-code-ink);
+    background: var(--color-code-bg);
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+
+  pre {
+    max-inline-size: 100%;
+    overflow-x: auto;
+    border: var(--border-thin);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+  }
+
+  figure,
+  article>img,
+  article>picture,
+  article>p>img:only-child,
+  article>p>picture:only-child {
+    margin-block: var(--space-4);
+  }
+
+  /*
+   * Square media for Markdown output and @11ty/eleventy-img's <picture> output.
+   * :only-child avoids turning inline emoji and other prose images into media blocks.
+   */
+  :where(
+    article>img,
+    article>p>img:only-child,
+    article>picture>img,
+    article>p>picture:only-child>img,
+    article figure>img,
+    article figure>picture>img
+  ) {
+    inline-size: 100%;
+    aspect-ratio: 1 / 1;
+    block-size: auto;
+    object-fit: var(--image-fit, cover);
+    object-position: var(--image-position, center);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+
+  /* Use on screenshots or diagrams that should not be cropped. */
+  :where(.image--contain, picture.image--contain>img) {
+    --image-fit: contain;
+  }
+
+  :where(aside, .main-sidebar) h2 {
+    margin-block: var(--space-4) var(--space-2);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  :where(aside, .main-sidebar) h2:first-child {
+    margin-block-start: 0;
+  }
+
+  :where(aside, .main-sidebar) ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  :where(aside, .main-sidebar) li+li {
+    margin-block-start: var(--space-1);
+  }
+
+  :where(aside, .main-sidebar) li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    border-block-end: 1px dotted var(--color-line);
+  }
+
+  :where(aside, .main-sidebar) a {
+    color: var(--color-ink);
+    font-size: var(--font-size-sm);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+  }
+
+  :where(aside, .main-sidebar) a:hover {
+    color: var(--color-accent);
+  }
+
+  .year-filter {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-1) var(--space-3);
+  }
+
+  :where(aside, .main-sidebar) .year-filter li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: var(--space-1);
+    margin-block-start: 0;
+    border: 0;
+  }
+
+  .year-filter li span {
+    text-align: end;
+  }
+
+  nav[aria-label="pagination"],
+  .post-list-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-block-start: var(--space-5);
+    border-block-start: var(--border-thin);
+    padding-block-start: var(--space-3);
+  }
+
+  .post-list-pagination {
+    justify-content: center;
+  }
+
+  nav[aria-label="pagination"] a,
+  .post-list-pagination a {
+    border: var(--border-thin);
+    border-radius: var(--radius-sm);
+    padding: var(--space-1) var(--space-2);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+  }
+
+  a[aria-current="page"] {
+    color: var(--color-ink);
+    background: var(--color-accent-soft);
+  }
+
+  .social-share {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-block-start: var(--space-5);
+    border-block-start: var(--border-thin);
+    padding-block-start: var(--space-4);
+  }
+
+  .social-share a {
+    padding: var(--space-1);
+    text-decoration: none;
+  }
+
+  .social-share i {
+    font-size: var(--font-size-xl);
+  }
+
+  form {
+    display: grid;
+    gap: var(--space-2);
+    max-inline-size: 38rem;
+    margin-block-start: var(--space-5);
+  }
+
+  form label {
+    font-weight: var(--weight-bold);
+  }
+
+  :where(input, textarea, select) {
+    inline-size: 100%;
+    border: var(--border-thin);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2);
+    color: var(--color-ink);
+    background: var(--color-surface-raised);
+  }
+
+  textarea {
+    min-block-size: 10rem;
+    resize: vertical;
+  }
+
+  button {
+    justify-self: start;
+    border: 0;
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-3);
+    color: #fff;
+    background: var(--color-accent);
+    font-weight: var(--weight-bold);
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: var(--color-accent-hover);
+  }
+
+  footer small {
+    color: var(--color-ink-muted);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+  }
+}
+
+@layer utilities {
+  .layout__cozy>*+* {
+    margin-block-start: var(--space-4);
+  }
+
+  .layout__compact>*+* {
+    margin-block-start: var(--space-2);
+  }
+
+  .layout__condense>*+* {
+    margin-block-start: var(--space-1);
+  }
+
+  .flow>*+* {
+    margin-block-start: var(--flow-space, var(--space-3));
+  }
+
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--cluster-gap, var(--space-2));
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-gap, var(--space-3));
+  }
+
+  .measure {
+    max-inline-size: var(--measure-copy);
+  }
+
+  .text-muted {
+    color: var(--color-ink-muted);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

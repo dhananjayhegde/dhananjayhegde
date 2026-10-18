@@ -9,16 +9,16 @@
                 </div>
                 {% include "components/nav.njk" %}
             </header>
-            <main class="site-main-conatiner">
-                <div class="main-content layout__cozy">
+            <main class="site-main-container">
+                <section class="main-content layout__cozy" aria-label="Main content">
                     {{ layoutContent | safe }}
-                </div>
-                <div class="main-sidebar">
+                </section>
+                <aside class="main-sidebar" aria-label="Browse posts">
                     <h2 class="sidebar-header">By Topic</h2>
                     {% include "components/category-filter.njk" %}
                     <h2 class="sidebar-header">By Year</h2>
                     {% include "components/year-filter.njk" %}
-                </div>
+                </aside>
             </main>
             {% include "components/footer.njk" %}
         </div>
