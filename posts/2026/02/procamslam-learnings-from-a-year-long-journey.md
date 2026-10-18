@@ -52,7 +52,7 @@ It was about a month after starting the training that I thought of asking Adiga 
 
 # Vedanta Delhi Half Marathon - October 12, 2025
 
-I was not plannign for anything dramatic.  A Sub-2 HM was all I was targeting.  Amrutha and I reached Delhi via Hinton Airport Ghaziabad on Saturday the 11th of October. Lunch was at a Haldiram's restaurant.  We met other Burner boys for dinner - Yogi, Manju and Rajeev, who were all attempting the Procam Slam like we were. 
+I was not plannign for anything dramatic.  A Sub-2 HM was all I was targeting.  Amrutha and I reached Delhi via Hindon Airport Ghaziabad on Saturday the 11th of October. Lunch was at a Haldiram's restaurant.  We met other Burner boys for dinner - Yogi, Manju and Rajeev, who were all attempting the Procam Slam like we were. 
 
 Being almost a flat course, Delhi Half Marathon felt like a breeze.  I could hold an average pace of about 5:05 min/km.  I could save enough energy for the end to even push a little bit.  It turned out to be much better than I had even hoped for.  My final timing was 1:47:33 for 21.1 km.  
 
