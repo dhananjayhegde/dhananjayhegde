@@ -52,7 +52,7 @@ It was about a month after starting the training that I thought of asking Adiga 
 
 # Vedanta Delhi Half Marathon - October 12, 2025
 
-I was not plannign for anything dramatic.  A Sub-2 HM was all I was targeting.  Amrutha and I reached the Delhi via Nizamabad airport on Saturday the 11th of October.  Lunch was at a Haldiram's restuarant.  We met other Burner boys for dinner - Yogi, Manju and Rajeev, who were all attempting the Procam Slam like we were. 
+I was not plannign for anything dramatic.  A Sub-2 HM was all I was targeting.  Amrutha and I reached Delhi via Hinton Airport Ghaziabad on Saturday the 11th of October. Lunch was at a Haldiram's restaurant.  We met other Burner boys for dinner - Yogi, Manju and Rajeev, who were all attempting the Procam Slam like we were. 
 
 Being almost a flat course, Delhi Half Marathon felt like a breeze.  I could hold an average pace of about 5:05 min/km.  I could save enough energy for the end to even push a little bit.  It turned out to be much better than I had even hoped for.  My final timing was 1:47:33 for 21.1 km.  
 
@@ -92,7 +92,7 @@ I finished with 4:00:26, aout 5 minutes slower than my target timing.  Neverthel
 
 It was a year of rigorous training.  I was trying to keep my health together for the races.  Missing one race meant having to re-try all 4 again next year.  It made me believe that I could commit to something and stay true it to for a long time.  Yes, I did not win a prize.  But, within myself, something had shifted.  I was always told that I could not keep up with any new hobby for more than a few months.  I proved to myself that it was not true.  And, that makes a lot of difference.  
 
-Yes, running is a lonely sport.  Once the race starts, you are on your own.  You have to carry yourself across the finish line.  But the support of people around you, your family, friends, the group that trains with you, coahes that train you, mentors that guide you - all of these play an important role in crossing that finish line.  It would not be possible without that.  
+Yes, marathon running is a lonely sport.  Once the race starts, you are on your own.  You have to carry yourself across the finish line.  But the support of people around you, your family, friends, the group that trains with you, coahes that train you, mentors that guide you - all of these play an important role in crossing that finish line.  It would not be possible without them.  
 
-In that running is a group sport - a group of people that stand behind you for that long journey so that you can carry yourself through those last 42.2km.
+In that marathon running is a group sport - a group of people that stand behind you during that long journey so that you can carry yourself through those last 42.2km.
 
