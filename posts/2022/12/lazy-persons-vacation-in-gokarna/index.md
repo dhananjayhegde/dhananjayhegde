@@ -9,7 +9,7 @@ tags:
   - "relax"
   - "temples"
   - "vacation"
-coverImage: "/images/IMG_20221127_171212126-scaled.jpg"
+coverImage: "/static/img/2022/12/IMG_20221127_171212126-scaled.jpg"
 excerpt: Gokarna, a spiritually important beach town in Uttara Kannada District has a lot to offer for every kind of tourist there.  But, some times, you simply do not want to do anything. You just want to be there, that's all!
 ---
 
@@ -49,33 +49,16 @@ This time, I wanted to explore Gokarna outside of it.  But I did not want to sp
 
 Just two weeks before the travel date (towards the end of November this year), I booked a hill-top cottage in [Niramaya Resort](https://www.google.com/maps/place/Niramaya+resort/@14.5335332,74.3130598,17z/data=!3m1!4b1!4m8!3m7!1s0x3bbe83ed1988fecb:0xd7b0b86f2d96c0b!5m2!4m1!1i2!8m2!3d14.5335332!4d74.3152485) on [Bookings.com](http://Bookings.com).  Kudle beach is 5 minutes from there by walk.  But the beach is visible from the portico of this cottage.  It also looked not so crowded as there was enough distance between one cottage to the other.
 
-<figure>
 
-![](images/IMG_20221126_131149625_MP-1024x766.jpg)
-
-<figcaption>
+![Kudle Beach](/static/img/2022/12/IMG_20221126_131149625_MP-1024x766.jpg)
 
 Kudle beach from outside the cottage
-
-</figcaption>
-
-</figure>
 
 Bus journey was comfortable from Bengaluru to Gokarna.  Bus (Greenline Travels) took Bengaluru Pune Highway till Haveri and reached Gokarna via Sirsi.  Having boarded the bus at Jayanagar at around 9pm, and changing to main bus at Ananda Rao circle, I slept uninterrupted till 5:30am and only woke up when we reached Sirsi.  From there on, I kept waiting for Devimane Ghat.  Memories from childhood kept rushing back.  But it was not like how I remembered it.
 
 Whenever we passed through Devimane Ghat by a KSRTC bus, they would stop the bus at the peak for a break where there is a small temple. Everyone would get down, enjoy the view of lush greenery of the Western Ghats and go on about their journey. It was not so this time.
 
-<figure>
-
-![image.png](/static/img/2022/12/image.png)
-
-<figcaption>
-
-Souce: Wikipedia becasue I could not take a photo from the bus
-
-</figcaption>
-
-</figure>
+![Souce: Wikipedia becasue I could not take a photo from the bus](/static/img/2022/12/image.png)
 
 By the time we reached Gokarna, it was around 8am; a delay by 30 minutes.  Upon arriving we took an auto to Niramaya Resort.  Which was around 2 – 3km from the bus stand. I felt auto charges were a bit high for that distance (Rs. 150/-).
 
@@ -87,17 +70,7 @@ We took a quick shower, got ready and headed outside.  I was hungry and wanted 
 
 Our first stop was the main beach which is overlooked by the Mahābaleswara temple.  Since it was a sunny day and it was getting hotter by the noon, we headed back into the market street in front of the temple enjoying the amalgamation of various aromas coming from spice shops on either side of the street.  Since it was too early for any hotels to serve lunch.  So, we headed back to our cottage and retired to hammocks for a short nap.  It was so quiet and breeze from the beach below was so soothing, nap turned into a one and half hour sound sleep.  When I woke up, I was hungry.  So, headed back into the town for lunch.  Ate something in the restaurant on the main beach and came back to the cottage.  Whole idea of this trip was to eat, sleep, rest and watch the sea. We wanted to stand by that plan.
 
-<figure>
-
-![](https://i0.wp.com/dhananjayhegde.in/wp-content/uploads/2022/12/IMG_6991-scaled.jpg?fit=768%2C1024&ssl=1)
-
-<figcaption>
-
-Typical Street in Gokarna
-
-</figcaption>
-
-</figure>
+![A typical street in Gokarna](/static/img/2022/12/IMG_6991-scaled.jpg)
 
 In the evening, we walked down to the Kudle Beach.  I sat on the beach while my wife enjoyed playing in the water as the sun went down.  This is what I was hoping to do there, just sit and do nothing.
 
@@ -117,7 +90,7 @@ They waved a familiar smile at us.  We sat at the same place where we sat the p
 
 By the time we left, it was around 4:30pm.  Today, we wanted to walk behind the cottages and go the other side of the hill to watch the sunset.  It was a private place, so no one except those who stayed in the cottages had access to the spot.  We did not have much company for the sunset except for one more couple who must have come there not expecting to see anybody, like we did.
 
-![](images/IMG_E6911-1-1024x768.jpg)![](https://i2.wp.com/dhananjayhegde.in/wp-content/uploads/2022/12/IMG_E6926-2-1024x768.jpg?ssl=1)
+![Sunset view behind the cottages](/static/img/2022/12/IMG_E6911-1-scaled.jpg)
 
 It was one of the most beautiful sunsets I have ever watched.  We sat at the edge of the cliff and watched the Sun going down.  It felt like we were at the edge of the world.  We kept playing “how many fishing boats can you see?” game for a while.  Ramya was humming some Rāma stotrās in low voice which added divinity to beauty. As it was Shukla Paksha (fortnight of the growing moon), it was not going to be too dark. We must have sat there for a long time before finally decided to walk back to the cottage.
 
@@ -133,47 +106,13 @@ Having had such detailed instructions with us we could not have missed any. So, 
 
 This meant we reached the temple a bit late, by around 9:30am. Since we had to follow the sequence as instructed by my mother, by the time we reached the Mahabaleswar temple, there was already a long queue for the darshana. We waited in the queue for about 30 minutes to finally reach the sanctum only to get pushed out by the priest within a fraction of a second. Before we came out, Ramya had more water in her eyes than the Arabian Sea 100 meters away. This is one the few temples where devotees get to go into the Sanctum Sanctorum and touch the deity. Due to the crowd, she could not get to do that. We promised ourselves to come back early next morning. That seemed to sooth her a little bit.
 
-<figure>
+![Shree Mahaa GaNapathi Temple](/static/img/2022/12/IMG_E6977-768x1024.jpg)
 
-<figure>
+![Shree Mahaabaleswara Temple](/static/img/2022/12/IMG_E6963-1-1024x768.jpg)
 
-![](images/IMG_E6977-768x1024.jpg)
+![Koti Teertha](/static/img/2022/12/IMG_E6987-1-1024x768.jpg)
 
-<figcaption>
-
-Maha Ganapati Temple
-
-</figcaption>
-
-</figure>
-
-<figure>
-
-![](images/IMG_E6963-1-1024x768.jpg)
-
-<figcaption>
-
-Sri Mahabaleswara Temple
-
-</figcaption>
-
-</figure>
-
-<figure>
-
-![](images/IMG_E6987-1-1024x768.jpg)
-
-<figcaption>
-
-Koti Teertha
-
-</figcaption>
-
-</figure>
-
-</figure>
-
-**Note:** Do not forget to buy some flowers from women selling them outside the temples.
+> **Note:** Do not forget to buy some flowers from women selling them outside the temples.
 
 Rest of the day went like the previous one - lunch at the Garden Cafe on Kudle Beach, sunset at the cliff, back to Garden Cafe for dinner, back to cottage, sitting outside the cottage stargazing for a while and then to bed.
 
@@ -189,17 +128,7 @@ After keeping our luggage there, we took a KSRTC bus to Kumta. We were on our wa
 
 Journey takes around 1.5 to 2 hours and 2 buses - Gokarna to Kumta and from there to Murudeshwar Gate - and then an auto from there to the temple. By the time we reached, the clock struck 1 and the temple doors closed. They would open again at 3pm.
 
-<figure>
-
-![](images/IMG_20221129_143956444-1024x766.jpg)
-
-<figcaption>
-
-Murudeshwara Temple
-
-</figcaption>
-
-</figure>
+![Murudeshwara Temple](/static/img/2022/12/IMG_20221129_143956444-1024x766.jpg)
 
 We decided to have lunch at Hotel Kamat Yātrinivās right in front of the temple gates. After lunch, we had an hour to kill. So, we decided to walk behind the temple and look at the Shiva statue. Since it was a very hot afternoon, we took a place under the shade behind the statue and sat there playing “guess the person” game.
 
@@ -209,7 +138,7 @@ By 2:40pm, we decided to walk back to the main entrance and stand in queue. Than
 
 There are two elevators. Each can carry 6 people one operator at a time. Once you are on the 16th floor, you can look through the small windows at the vast Arabian sea through North and South facing windows, at the Shiva statue and at the town through West and East facing windows. The view of the Arabian Sea is breathtaking. If you are not lucky enough, then there would be a crowd and you wouldn't get enough time to really enjoy it. It's not fun if you are being pushed and pulled from all sides while you are trying to grasp the vastness.
 
-![](images/IMG_20221129_151601835-1024x766.jpg)![](https://i1.wp.com/dhananjayhegde.in/wp-content/uploads/2022/12/IMG_20221129_151828213-1024x766.jpg?ssl=1)
+![Arabian sea from the temple tower](/static/img/2022/12/IMG_20221129_151601835-1024x766.jpg)
 
 Taking the darshana at Murudeshwara temple was not so difficult as crowd was not so much. After that, we headed back to Murudeswara Gate by auto where we had to wait for some 20 minutes before catching a KSRTC bus to Kumta.
 
@@ -223,4 +152,4 @@ I should say, in my opinion, being lazy and visiting fewer places yet enjoying t
 >
 > \- just myself
 
-![](images/IMG_E6925-768x1024.jpg)
+![Random image](/static/img/2022/12//IMG_E6925-768x1024.jpg)

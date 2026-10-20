@@ -290,19 +290,7 @@ With this, we are done. Start the app with `yarn dev` OR `yarn build` and `yarn 
 
 You will be greeted with a beautiful masonry layout!
 
-<figure>
-
-![masonry.png](/static/img/2023/01/masonry.png)
-
-<figcaption>
-
-masonry layout with top-right image hovered
-
-</figcaption>
-
-![masonry-large.png](/static/img/2023/01/masonry-large.png)
-
-</figure>
+![Masonry layout with top-right image hovered](/static/img/2023/01/masonry.png)
 
 GitHub Repo - [https://github.com/dhananjayhegde/nextjs-imagekit-demo](https://github.com/dhananjayhegde/nextjs-imagekit-demo)
 

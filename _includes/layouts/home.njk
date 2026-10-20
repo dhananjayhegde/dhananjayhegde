@@ -6,7 +6,7 @@ eleventyComputed:
     metaDescription: Best SAP ABAP, Fiori tutorials in 2024, how-tos, RESTful Application Programming tutorials, OData v2, v4, Web Development, thoughts, travels and musings
 ---
 
-{{ layoutContent | safe }}
+{{ content | safe }}
 <h2>Latest Posts</h2>
 {% set all = collections.post | reverse %}
 {% set postslist = all.slice(0,5) %}

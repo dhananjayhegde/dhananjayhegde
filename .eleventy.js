@@ -5,6 +5,7 @@ const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { tableOfContents } = require("./lib/table-of-contents");
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 const markdownIt = require("markdown-it");
 
@@ -19,6 +20,23 @@ const getExcerpt = (post) => {
 };
 
 module.exports = function (eleventyConfig) {
+
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    // Which formats to generate
+    formats: ["avif", "webp", "jpeg", "jpg", "png", "svg"],
+
+    // Default sizing behaviors
+    widths: ["auto", 400, 800],
+
+    // Pass attributes to the output <img> tag
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+      sizes:
+        "(max-width: 36rem) calc(100vw - 2rem), (max-width: 52rem) calc(100vw - 3rem), 68ch",
+    },
+  });
+
   eleventyConfig.addShortcode("currentyear", function () {
     return new Date().getFullYear();
   });

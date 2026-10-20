@@ -47,7 +47,7 @@ For all the code samples and images below, dark theme is used for CAP Java and l
 
 ![pear-1-1024x1024.png](/static/img/2023/09/pear-1-1024x1024.png)
 
-Wondering why there is an avacado, by the way? Becasue I am lazy to change it!
+Wondering why there is a pear, by the way? Becasue I am lazy to change it!
 
 ## Initial Project Structure
 
@@ -103,13 +103,13 @@ I say "as of now" because, once we start adding custom logic to our service, I t
 
 In case of CAP Node.js, it is simple. From the root directory of your project, you run the below command
 
-```
+```sh
 cds watch
 ```
 
 In case of CAP Java, you can either do this:
 
-```
+```sh
 cd srv && mvn cds:watch
 ```
 
@@ -117,7 +117,7 @@ Notice how you moved into `srv` directory to run the command.
 
 Or, you can be on your root directory and run
 
-```
+```sh
 mvn spring-boot:run
 ```
 
