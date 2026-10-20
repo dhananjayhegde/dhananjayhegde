@@ -12,11 +12,13 @@ tags:
 excerpt: I got this error while experimenting with UI5 Web Components with React.  Took me about a day to figure out what the error meant and where I had messed up.  Hope this helps you if you too are stuck with same issue.
 ---
 
+## Issue
+
 Out of the blue, I got interest in trying out UI5 Web Components with React today. Then I rememebered that I had completed [this excellent tutorial](https://developers.sap.com/tutorials/ui5-webcomponents-react-introduction.html) during DevtoberFest 2022.
 
 So, I used this template to bootstrap a basic React app with UI5 Web Component.
 
-```kbd
+```sh
 npx create-react-app my-app --template @ui5/cra-template-webcomponents-react
 cd my-app
 ```

@@ -5,6 +5,7 @@ const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { tableOfContents } = require("./lib/table-of-contents");
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 const markdownIt = require("markdown-it");
 
@@ -19,6 +20,23 @@ const getExcerpt = (post) => {
 };
 
 module.exports = function (eleventyConfig) {
+
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    // Which formats to generate
+    formats: ["avif", "webp", "jpeg", "jpg", "png", "svg"],
+
+    // Default sizing behaviors
+    widths: ["auto", 400, 800],
+
+    // Pass attributes to the output <img> tag
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+      sizes:
+        "(max-width: 36rem) calc(100vw - 2rem), (max-width: 52rem) calc(100vw - 3rem), 68ch",
+    },
+  });
+
   eleventyConfig.addShortcode("currentyear", function () {
     return new Date().getFullYear();
   });
@@ -26,6 +44,26 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("excerpt", (post) => getExcerpt(post));
 
   eleventyConfig.addFilter("tableOfContents", tableOfContents);
+
+  eleventyConfig.addFilter("coverImageUrl", (imagePath) => {
+    if (!imagePath) return "";
+
+    const normalizedPath = String(imagePath).trim().replace(/\\/g, "/");
+    if (!normalizedPath) return "";
+
+    if (/^(?:[a-z][a-z\d+.-]*:|\/\/|\/)/i.test(normalizedPath)) {
+      return normalizedPath;
+    }
+
+    if (normalizedPath.startsWith("static/")) {
+      return `/${normalizedPath}`;
+    }
+
+    const relativePath = normalizedPath.replace(/^\.\//, "");
+    return relativePath.startsWith("images/")
+      ? relativePath
+      : `images/${relativePath}`;
+  });
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);

@@ -23,33 +23,13 @@ I was expecting an entrance, some entry fee, some guards and at least some other
 
 It was a pleasant walk inside the Reserve with no human beings and no black bucks either. A couple of peacocks peaked out from the bushes. A rabbit hurriedly jumped across the mud road and disappeared. We walked for about half an hour and then decided to drive inside the Reserve as it appeared too large to cover by foot. But there were no black bucks to see. By 10am we decided there was no point prolonging our stay there and took leave to Madhugiri.
 
-<figure>
-
-![](images/IMG_20220709_094600846-1024x766.jpg)
-
-<figcaption>
-
-Inside Jayamangali Blackbuck reserve
-
-</figcaption>
-
-</figure>
+![Inside Jayamangali Blackbuck reserve](images/IMG_20220709_094600846-1024x766.jpg)
 
 It is about 20km from there. On the way, Akash was experiencing a bit of nausea. So, we stopped near a village and went hunting for lemons. Only after sniffing a lemon did he feel OK to continue the journey. By 11am we were at the base of Madhugiri Fort. Security guard at the entrance asked us to show our ID cards and wrote down our vehicle number in his registry. He told us we could park our car at the base of the hill and said it would take around 2 hours to go to the peak and come back. Based on what we could see form the base, we thought we could do that in 1.
 
 So, our climbing started.
 
-<figure>
-
-![](images/IMG_20220709_114831888-766x1024.jpg)
-
-<figcaption>
-
-at the foot of the hill
-
-</figcaption>
-
-</figure>
+![Foot of the hill](images/IMG_20220709_114831888-766x1024.jpg)
 
 There were not many tourists at the time. It was still cloudy. It's a steep rocky hill and at some places is slippery too. There are barricades, steel supports and ropes at some places to help the tourists. No sooner did we start climbing than we realized that we were deceived by the appearance of the Hill.
 
@@ -57,17 +37,7 @@ It does not reveal itself completely at first. It tricks you into believing that
 
 After a few minutes, I told him I was going to climb further and see where it takes me. Hence my lone journey started. A brief rest had restored my energy. Before long I was breathless. But I kept climbing. When I could not, I crawled. But forward I went.
 
-<figure>
-
-![](images/IMG_20220709_123055457_HDR-1024x768.jpg)
-
-<figcaption>
-
-Halfway to peak - Madhugiri Hills
-
-</figcaption>
-
-</figure>
+![Halfway to peak - Madhugiri Hills](images/IMG_20220709_123055457_HDR-1024x768.jpg)
 
 As I climbed a voice kept running in my head. A voice that during a guided meditation session asked me to imagine climbing a steep mountain. A voice that asked me to imagine and feel the cold breeze as I climbed higher and higher, to feel the breathlessness. A voice that asked to me to imagine reaching the peak and asked me how I felt having climbed it. While I practiced the guided meditation, it did not really make much difference. But, that day as I kept climbing, all that came back to me. It was meditative in itself. I was consumed by it. By the breeze, by the breathlessness, by the tiredness but also by the desire to reach the peak. As I climbed, houses appeared tinier and tinier. I could see farther. I could see snake-like roads that took people everywhere. Neighboring hills appeared shorter.
 
