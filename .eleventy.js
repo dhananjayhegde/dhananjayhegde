@@ -254,6 +254,8 @@ module.exports = function (eleventyConfig) {
     markdownIt(options).use(markdownItAnchor, opts)
   );
 
+  
+
   return {
     templateFormats: ["md", "njk", "liquid"],
 

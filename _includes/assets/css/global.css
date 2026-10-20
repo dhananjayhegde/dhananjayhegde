@@ -313,7 +313,7 @@
     object-fit: var(--image-fit, contain);
     object-position: var(--image-position, center);
     border-radius: var(--radius-md);
-    background: var(--color-accent-soft);
+    /* background: var(--color-accent-soft); */
   }
 
   /* Use on screenshots or diagrams that should not be cropped. */
