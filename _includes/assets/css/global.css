@@ -316,6 +316,11 @@
     /* background: var(--color-accent-soft); */
   }
 
+  article .cover-image {
+    inline-size: 100%;
+    object-fit: var(--image-fit, cover);
+  }
+
   /* Use on screenshots or diagrams that should not be cropped. */
   :where(.image--contain, picture.image--contain>img) {
     --image-fit: contain;

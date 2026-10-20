@@ -45,6 +45,26 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("tableOfContents", tableOfContents);
 
+  eleventyConfig.addFilter("coverImageUrl", (imagePath) => {
+    if (!imagePath) return "";
+
+    const normalizedPath = String(imagePath).trim().replace(/\\/g, "/");
+    if (!normalizedPath) return "";
+
+    if (/^(?:[a-z][a-z\d+.-]*:|\/\/|\/)/i.test(normalizedPath)) {
+      return normalizedPath;
+    }
+
+    if (normalizedPath.startsWith("static/")) {
+      return `/${normalizedPath}`;
+    }
+
+    const relativePath = normalizedPath.replace(/^\.\//, "");
+    return relativePath.startsWith("images/")
+      ? relativePath
+      : `images/${relativePath}`;
+  });
+
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 

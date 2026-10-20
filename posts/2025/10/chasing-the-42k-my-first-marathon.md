@@ -7,10 +7,9 @@ tags:
   - running
   - wellbeing
   - nmdc-hyderabad-marathon
+coverImage: "/static/img/2025/10/42k-medal-first-marathon.jpg"
 excerpt: They say “in a marathon, the first 32 km is just a warm up. The real marathon is the last 10km!”. I realized what it meant when I ran my first marathon.
 ---
-
-![42k-medal-first-marathon.jpg](/static/img/2025/10/42k-medal-first-marathon.jpg)
 
 > They say “in a marathon, the first 32 km is a warm up.  The real marathon is the last 10km”.
 

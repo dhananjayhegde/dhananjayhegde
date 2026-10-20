@@ -9,7 +9,7 @@ tags:
   - "relax"
   - "temples"
   - "vacation"
-coverImage: "/static/img/2022/12/IMG_20221127_171212126-scaled.jpg"
+coverImage: "/static/img/2022/12/IMG_E6987-1-1024x768.jpg"
 excerpt: Gokarna, a spiritually important beach town in Uttara Kannada District has a lot to offer for every kind of tourist there.  But, some times, you simply do not want to do anything. You just want to be there, that's all!
 ---
 

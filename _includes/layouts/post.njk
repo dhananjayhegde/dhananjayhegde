@@ -11,6 +11,9 @@ section: post
       <div class="tag-list">{% include "components/tag-list-inline.njk" %}</div>
     </div>
   </div>
+  {% if coverImage %}
+    <img class="cover-image" src="{{ coverImage | coverImageUrl }}" alt="{{ title }}">
+  {% endif %}
   {{ content | tableOfContents(page.inputPath) | safe }}
   {{ content | safe }}
   <div class="metadata">

@@ -8,10 +8,9 @@ tags:
   - wellbeing
   - tmm
   - marathon
+coverImage: "/static/img/2026/02/tmm-and-procam-slam-medal.jpg"
 excerpt: From coming out of injury in Feb 2025 to running my 1st marathon in August and the finishing Proccam Slam in Jan 2026 with 2nd marathon in Mumbai has been a rewarding journey with lot of learnings. Where do I go from here?
 ---
-
-![TMM and Procam Slam Medal](/static/img/2026/02/tmm-and-procam-slam-medal.jpg)
 
 > At TMM, they say, conserve your energies for Peddar road. Everyone must pay their taxes there. And the tax is everything they have left with. I was no exception to that. I walked a few steps on the hill and then slowly picked up my pace again.
 
