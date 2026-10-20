@@ -11,6 +11,7 @@ section: post
       <div class="tag-list">{% include "components/tag-list-inline.njk" %}</div>
     </div>
   </div>
+  {{ layoutContent | tableOfContents(page.inputPath) | safe }}
   {{ layoutContent | safe }}
   <div class="metadata">
     <div class="tag-list">{% include "components/tag-list-inline.njk" %}</div>

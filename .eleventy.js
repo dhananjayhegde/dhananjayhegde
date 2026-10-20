@@ -4,6 +4,7 @@ const UglifyJS = require("uglify-js");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const { tableOfContents } = require("./lib/table-of-contents");
 
 const markdownIt = require("markdown-it");
 
@@ -23,6 +24,8 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addShortcode("excerpt", (post) => getExcerpt(post));
+
+  eleventyConfig.addFilter("tableOfContents", tableOfContents);
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -236,7 +239,14 @@ module.exports = function (eleventyConfig) {
     linkify: true,
   };
   let opts = {
-    permalink: false,
+    permalink: markdownItAnchor.permalink.linkInsideHeader({
+      placement: "after",
+      symbol: "",
+      renderAttrs: () => ({
+        "aria-label": "Permalink to this section",
+        title: "Permalink to this section",
+      }),
+    }),
   };
 
   eleventyConfig.setLibrary(

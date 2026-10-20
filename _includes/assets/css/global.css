@@ -152,6 +152,63 @@
     letter-spacing: -0.045em;
   }
 
+  .table-of-contents {
+    /* border: var(--border-thin);
+    border-radius: var(--radius-md); */
+    padding: var(--space-1) var(--space-1);
+  }
+
+  .table-of-contents h2 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+  }
+
+  .table-of-contents :where(ol, ol ol) {
+    margin-block: var(--space-2) 0;
+    padding-inline-start: var(--space-4);
+    list-style: none;
+  }
+
+  .table-of-contents a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .table-of-contents__number {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: var(--weight-bold);
+  }
+
+  .header-anchor {
+    display: inline-block;
+    margin-inline-start: 0.35em;
+    color: var(--color-ink-muted);
+    /* font-family: var(--font-mono); */
+    font-size: 0.65em;
+    font-weight: var(--weight-regular);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 120ms ease-in-out;
+  }
+
+  .header-anchor::after {
+    content: "#";
+  }
+
+  :where(h1, h2, h3, h4, h5, h6):hover .header-anchor,
+  .header-anchor:focus-visible {
+    opacity: 1;
+  }
+
+  .header-anchor:is(:visited, :hover, :focus-visible) {
+    color: var(--color-accent);
+  }
+
+  :where(h1, h2, h3, h4, h5, h6):target {
+    scroll-margin-block-start: var(--space-3);
+  }
+
   .metadata {
     display: flex;
     flex-wrap: wrap;
@@ -209,8 +266,7 @@
     padding: var(--space-2) var(--space-4);
     color: var(--color-ink-muted);
     font-size: var(--font-size-base);
-    font-weight: var(--weight-medium);
-    font-family: var(--font-mono);
+    background: var(--color-accent-soft);
   }
 
   :where(p, li)>code,
@@ -245,21 +301,19 @@
    * Square media for Markdown output and @11ty/eleventy-img's <picture> output.
    * :only-child avoids turning inline emoji and other prose images into media blocks.
    */
-  :where(
-    article>img,
+  :where(article>img,
     article>p>img:only-child,
     article>picture>img,
     article>p>picture:only-child>img,
     article figure>img,
-    article figure>picture>img
-  ) {
+    article figure>picture>img) {
     inline-size: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 16/9;
     block-size: auto;
-    object-fit: var(--image-fit, cover);
+    object-fit: var(--image-fit, contain);
     object-position: var(--image-position, center);
     border-radius: var(--radius-md);
-    background: var(--color-surface-raised);
+    background: var(--color-accent-soft);
   }
 
   /* Use on screenshots or diagrams that should not be cropped. */
