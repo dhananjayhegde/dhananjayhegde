@@ -248,3 +248,5 @@ These are part of the current implementation but should not be copied into new w
 - Some icon-only social and pagination links need explicit accessible labels.
 
 Treat these as migration notes, not as reasons to change behavior incidentally during unrelated restyling.
+
+End of file. for testing.
