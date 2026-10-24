@@ -3,18 +3,19 @@
 
 @layer tokens {
   :root {
-    /* Reference-inspired dark editorial palette */
+    /* Modern brutalist editorial palette */
     --color-canvas: #ffffff;
     --color-surface: #ffffff;
-    --color-surface-raised: #f7f7f5;
+    --color-surface-raised: #fff7f2;
     --color-ink: #111111;
     --color-ink-muted: #3c3535;
-    --color-line: #dededb;
-    --color-line-strong: #c8c8c3;
-    --color-accent: #9a6800;
-    --color-accent-hover: #714c00;
-    --color-accent-soft: #fff1bd;
-    --color-code-bg: #f3f3f0;
+    --color-line: #111111;
+    --color-line-strong: #111111;
+    --color-accent: #c63f00;
+    --color-accent-hover: #8f2d00;
+    --color-accent-loud: #ff4f00;
+    --color-accent-soft: #ffd8c4;
+    --color-code-bg: #fff0e8;
     --color-code-ink: #191919;
 
     --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -50,10 +51,12 @@
     --measure-wide: 78rem;
     --sidebar-width: 16rem;
     --layout-gap: clamp(var(--space-4), 6vw, var(--space-10));
-    --radius-sm: 0.375rem;
-    --radius-md: 0.625rem;
-    --border-thin: 1px solid var(--color-line);
-    --shadow-focus: 0 0 0 0.125rem var(--color-canvas), 0 0 0 0.25rem var(--color-accent);
+    --radius-sm: 0;
+    --radius-md: 0;
+    --border-thin: 2px solid var(--color-line);
+    --border-heavy: 3px solid var(--color-line-strong);
+    --shadow-brutal: 4px 4px 0 var(--color-ink);
+    --shadow-focus: 0 0 0 0.125rem var(--color-canvas), 0 0 0 0.375rem var(--color-accent);
 
     /* Compatibility aliases for existing content and templates */
     --contrast: var(--color-ink);
@@ -193,7 +196,7 @@
 
   ::selection {
     color: var(--color-ink);
-    background: var(--color-accent-soft);
+    background: var(--color-accent-loud);
   }
 
   @media (prefers-reduced-motion: reduce) {
