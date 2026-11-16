@@ -1,5 +1,5 @@
 ---
-title: "ಹಮಜ್ಜಿಗೆ ಕಪಾಟುು"
+title: "ಮಜ್ಜಿಗೆ ಕಪಾಟು"
 date: 2026-11-16
 categories:
     - musings
